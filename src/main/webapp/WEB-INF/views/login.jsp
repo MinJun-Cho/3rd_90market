@@ -9,17 +9,40 @@
 <title>Login</title>
 </head>
 <body>
-	<h1>로그인</h1>
-		<form:form action="/postLogin" method="post" modelAttribute="tempLoginMember">
-			<p>이메일 : <form:input type="text" path="email" /></p>
-						<form:errors path="email" style="color:red" />
-			<p>패스워드 : <form:password showPassword="true" path="passwd" /></p>
-						<form:errors path="passwd" style="color:red" />
-			<c:if test="${fail == true}">
-				로그인에 실패하였습니다. 이메일 또는 패스워드를 확인해주세요.
-			</c:if><br>
-			<form:button type="submit">로그인</form:button>
-			<input type="button" value="메인" onclick="location.href='/'" />
-		</form:form>
+	<form action="" method="POST">
+        <div class=login>
+            <div class="login_container">
+                <h2>로그인</h2>
+                <form:form action="/postLogin" method="post" modelAttribute="tempLoginMember">
+                    <div>
+                        <div class="name">E.mail</div>
+                        <div>
+                            <form:input type="text" path="email" placeholder="가입하셨던 이메일을 입력하세요">
+                        </div>
+                        <div class="name">Password</div>
+                        <div>
+                            <form:password showPassword="true" path="passwd" placeholder="비밀번호를 입력하세요">
+                        </div>
+                    </div>
+                    <div class='btn'>
+                        <button class='btn1'>
+                            네이버로 로그인 하기
+                        </button>
+                        <button class='btn2'>
+                            카카오톡으로 로그인 하기
+                        </button>
+                    </div>
+                    <div class="loginbtn">
+                        <c:if test="${fail == true}">
+                            로그인에 실패하였습니다. 이메일 또는 패스워드를 확인해주세요.
+                        </c:if><br>
+                        <form:button type="submit" class='btn3'>LOGIN</form:button>
+                    </div>
+                    <div id="join">
+                        <div>아직 계정이 없으세요?<a href="member_ join.html">회원가입하기</a></div>
+                    </div>
+                </form:form>
+            </div>
+        </div>
 </body>
 </html>
