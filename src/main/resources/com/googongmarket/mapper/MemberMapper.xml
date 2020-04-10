@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.googongmarket.mapper.MemberMapper">
+	<select id="emailCheck" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT email FROM members WHERE email = #{email}
+	</select>
+	
+	<insert id="joinMember" parameterType="com.googongmarket.domain.MemberVO">
+		INSERT INTO members(email, passwd, username, nickname, phone) 
+			VALUES(#{email}, #{passwd}, #{username}, #{nickname}, #{phone})
+	</insert>
+	
+	<select id="loginPasswdCheck" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT passwd FROM members WHERE email = #{email}
+	</select>
+	
+	<select id="getLoginMemberInfo" parameterType="com.googongmarket.domain.MemberVO" resultType="com.googongmarket.domain.MemberVO">
+		SELECT id, email FROM members WHERE email = #{email} AND passwd = #{passwd}
+	</select>
+	
+	<select id="getModifyMemberInfo" parameterType="java.lang.Integer" resultType="com.googongmarket.domain.MemberVO">
+		SELECT email, username, nickname, phone FROM members WHERE id = #{id}
+	</select>
+	
+	<update id="modifyMemberInfo" parameterType="com.googongmarket.domain.MemberVO">
+		UPDATE members SET passwd = #{passwd}, nickname = #{nickname}, phone = #{phone} WHERE id = #{id}
+	</update>
+</mapper>
