@@ -211,4 +211,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Settings
+*.properties
+
 # End of https://www.gitignore.io/api/java,macos,eclipse,intellij

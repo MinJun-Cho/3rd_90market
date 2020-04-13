@@ -52,28 +52,22 @@ public class MemberServiceImpl implements MemberService {
 		String plainPasswd = tempLoginMember.getPasswd();
 		String hashPasswd = mapper.loginPasswdCheck(tempLoginMember.getEmail());
 		
-		if(BCrypt.checkpw(plainPasswd, hashPasswd)) {
+		if(hashPasswd != null) {
 			
-			tempLoginMember.setPasswd(hashPasswd);
-			
-			MemberVO tempLoginMember2 = mapper.getLoginMemberInfo(tempLoginMember);
-			
-			if(tempLoginMember2 != null) {
+			if(BCrypt.checkpw(plainPasswd, hashPasswd)) {
 				
-				loginMember.setId(tempLoginMember2.getId());
-				loginMember.setEmail(tempLoginMember2.getEmail());
-				loginMember.setMemberLogin(true);
+				tempLoginMember.setPasswd(hashPasswd);
+				
+				MemberVO tempLoginMember2 = mapper.getLoginMemberInfo(tempLoginMember);
+				
+				if(tempLoginMember2 != null) {
+					
+					loginMember.setId(tempLoginMember2.getId());
+					loginMember.setEmail(tempLoginMember2.getEmail());
+					loginMember.setMemberLogin(true);
+				}
 			}
 		}
-		
-		//MemberVO tempLoginMember2 = mapper.getLoginMemberInfo(tempLoginMember);
-		
-//		if(tempLoginMember2 != null) {
-//			
-//			loginMember.setId(tempLoginMember2.getId());
-//			loginMember.setEmail(tempLoginMember2.getEmail());
-//			loginMember.setMemberLogin(true);
-//		}
 	}
 	
 	@Override
@@ -92,6 +86,9 @@ public class MemberServiceImpl implements MemberService {
 	public void modifyMemberInfo(MemberVO modifyMember) {
 		
 		modifyMember.setId(loginMember.getId());
+		
+		String hashPasswd = BCrypt.hashpw(modifyMember.getPasswd(), BCrypt.gensalt());
+		modifyMember.setPasswd(hashPasswd);
 		
 		mapper.modifyMemberInfo(modifyMember);
 		

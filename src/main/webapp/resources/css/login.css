@@ -56,6 +56,11 @@ button:focus{
     margin-left: 20px;
 }
 
+.error {
+	margin-top: 10px;
+    margin-left: 78px;
+}
+
 .btn {
     text-align: center;
     margin: 40px 0;
