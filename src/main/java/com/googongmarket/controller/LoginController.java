@@ -1,6 +1,7 @@
 package com.googongmarket.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.googongmarket.domain.MemberVO;
+import com.googongmarket.domain.NaverLoginBO;
 import com.googongmarket.service.MemberService;
 import com.googongmarket.validator.MemberValidator;
 
@@ -27,15 +29,22 @@ public class LoginController {
 	@Setter(onMethod_ = {@Autowired})
 	private MemberService service;
 	
+	@Setter(onMethod_ = {@Autowired})
+	private NaverLoginBO naverLoginBO;
+	
 	@Resource(name = "loginMember")
 	@Lazy
 	private MemberVO loginMember;
 
 	@GetMapping("/login")
 	public String login(@ModelAttribute("tempLoginMember") MemberVO tempLoginMember,
-						@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model) {
+						@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model, HttpSession session) {
+		
+		String naverAuthUrl = naverLoginBO.getAuthorizeationUrl(session);
 		
 		model.addAttribute("fail", fail);
+		
+		model.addAttribute("url", naverAuthUrl);
 		
 		return "login";
 	}
