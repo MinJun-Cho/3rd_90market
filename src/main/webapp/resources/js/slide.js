@@ -112,17 +112,32 @@ clickbtn.addEventListener('click',function(){
     }
 });
 
-var menu = document.querySelector('.menu span i');
-var menu2 = document.querySelector('.menu div');
+var colorbtn = document.querySelectorAll('.category_button div button')
 
-console.log(menu2)
+function clickBtnHandler(){
+    for(var i = 0; i < colorbtn.length; i++ ){
+        colorbtn[i].classList.remove('colorbtn2')
+    }
+    this.classList.add('colorbtn2')
+    
+}
+for(var j=0; j < colorbtn.length; j++ ){
+    colorbtn[j].addEventListener('click', clickBtnHandler);
+}
 
-menu.addEventListener('mouseenter',function(){
-    menu.style.diplay = "inline-block";
-
-})
 
 
+
+  /*  $.ajax({
+        type: "GET",
+        url: "/",
+        success: function(response) {
+            (response);
+        },
+        error: function(err) {
+            console.log("error!");
+        }
+    });*/
 
 
 
