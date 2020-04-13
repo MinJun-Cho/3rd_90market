@@ -15,6 +15,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
@@ -58,7 +60,7 @@ public class AuthController {
 		return "auth/naver/login";
 	}
 	
-	@GetMapping("/auth/naver/callback")
+	@RequestMapping(value = "/auth/naver/callback", method = {RequestMethod.GET, RequestMethod.POST})
 	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session,
 							HttpServletRequest request, MemberVO memberVO) throws IOException, InterruptedException, ExecutionException, ParseException {
 		

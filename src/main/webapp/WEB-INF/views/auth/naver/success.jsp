@@ -20,7 +20,6 @@ h3 {
   $(document).ready(function() {
     var name = ${result}.response.name;
     var email = ${result}.response.email;
-    var welcome = ${welcome};
     $("#name").html("환영합니다. "+name+"님, 패스워드를 꼭!! 설정해주세요.");
     $("#email").html(email);
     });

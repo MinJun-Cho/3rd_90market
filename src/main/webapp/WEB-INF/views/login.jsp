@@ -43,18 +43,14 @@
 	                </div>
 	            </div>
 	            <div class='btn'>
-	                <button class='btn1'>
-	                    네이버로 로그인 하기
-	                </button>
-	                <button class='btn2'>
-	                    카카오톡으로 로그인 하기
-	                </button>
-	            </div>
+	                <a href="${url}">
+					<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
 	            <div class="loginbtn">
 	                <form:button type="submit" class='btn3'>LOGIN</form:button>
 	            </div>
 	            <div id="join">
-	                <div>아직 계정이 없으세요?<a href="join">회원가입하기</a></div>
+	            <div>아직 계정이 없으세요?<a href="join">회원가입하기</a></div>
+	                </div>
 	            </div>
 	        </form:form>
 	    </div>
