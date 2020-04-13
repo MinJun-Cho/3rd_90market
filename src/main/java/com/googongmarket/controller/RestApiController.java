@@ -18,9 +18,8 @@ public class RestApiController {
 	@GetMapping("/user/emailCheck/{email}")
 	public String emailCheck(@PathVariable String email) {
 		
-		boolean chk = service.emailCheck(email + "@naver.com");
+		boolean chk = service.emailCheck(email + ".com");
 		
 		return chk + "";
 	}
-
 }
