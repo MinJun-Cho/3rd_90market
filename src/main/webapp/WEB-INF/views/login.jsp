@@ -3,11 +3,20 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
+<<<<<<< HEAD
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <script src="https://kit.fontawesome.com/7b5ecf7db0.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo2.png" />
+    <link rel="stylesheet" href="css/login.css">
+=======
 <meta charset="UTF-8">
 <title>Login</title>
 <link rel="stylesheet" href="/resources/css/login.css" >
+>>>>>>> 2ec96547f39a0deca83d244c8100249685012921
 </head>
 <body>
 	<div class=login>

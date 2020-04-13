@@ -50,6 +50,56 @@
 	<div class = 'member'>
         <div class = 'member_container'>
 			<h2>회원가입</h2>
+<<<<<<< HEAD
+	<form:form action="/postJoin" method="post" modelAttribute="memberVO">
+		
+	<form:hidden path="emailExist" />
+		
+	이메일 :
+		
+		<form:input type="text" path="email" onkeypress="resetEmailExist()" />
+		
+		<button type="button" id='overlap' onclick="emailCheck()">중복확인</button><br>
+		
+		<form:errors path="email" style="color:red" /><br><br>
+		
+	패스워드 :
+		
+		<form:password showPassword="true" path="passwd" /><br>
+		
+		<form:errors path="passwd" style="color:red" /><br><br>
+		
+	패스워드 확인 :
+		
+		<form:password showPassword="true" path="passwd2" /><br>
+		
+		<form:errors path="passwd2" style="color:red" /><br><br>
+		
+	성명 :
+		
+		<form:input type="text" path="username" maxlength="10" /><br>
+		
+		<form:errors path="username" style="color:red" /><br><br>
+		
+	닉네임 :
+		
+		<form:input type="text" path="nickname" /><br>
+		
+		<form:errors path="nickname" style="color:red" /><br><br>
+		
+	연락처 :
+		
+		<form:input type="text" path="phone" /><br>
+		
+		<form:errors path="phone" style="color:red" /><br><br>
+
+		
+		<form:button type="submit">회원가입</form:button>
+		
+		<input type="button" value="취소" onclick="location.href='/'" />
+	
+	</form:form>
+=======
 				<form:form action="/postJoin" method="post" modelAttribute="memberVO">
 					<form:hidden path="emailExist" />
 					이메일 : 
@@ -77,6 +127,7 @@
 				</form:form>
 		</div>
 	</div>
+>>>>>>> 2ec96547f39a0deca83d244c8100249685012921
 </body>
 
 </html>
