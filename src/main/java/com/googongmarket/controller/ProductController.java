@@ -35,43 +35,54 @@ public class ProductController {
 	}
 
 	@PostMapping("/create")
-	public String register(MultipartFile[] file, ProductVO product, RedirectAttributes rttr) {
+	public String register(MultipartFile[] file, ProductVO product, RedirectAttributes rttr, Model model, HttpServletRequest request) {
 		
-		//log.info("register: " + product);
+		rttr.addFlashAttribute("result", product.getBno());		
 		service.create(product);
-		rttr.addFlashAttribute("result", product.getBno());
-		
-		String uploadFolder = "C:\\upload";
-		
+		int tmp = product.getBno();
+
 		for(MultipartFile multipartFile : file) {
-			//log.info("---------------------------------------");
-			//log.info("name : "+multipartFile.getOriginalFilename());
-			//log.info("size : "+multipartFile.getSize());
-			File saveFile = new File(uploadFolder, multipartFile.getOriginalFilename());
+			
+			System.out.println("file.separator : "+File.separator);
+			
+			String root_path = request.getSession().getServletContext().getRealPath("/");
+			System.out.println("root_path : "+root_path);
+			String attach_path = "resources"+"/"+"img";
+			System.out.println("attach_path : "+attach_path);
+			String fileName = multipartFile.getOriginalFilename() ;			
+			File f = new File(root_path+attach_path+"/"+fileName);
+			
+			String fil = product.getFilepath();
+			System.out.println("요기요 : "+fil);
 			
 			try {
 				
-				multipartFile.transferTo(saveFile);
-				//log.info("success");
-				product.setFilepath(uploadFolder);		
-				service.create(product);
+				multipartFile.transferTo(f);
+				System.out.println("f : "+f);
+				product.setBno(tmp);
+				product.setFilepath("/resources/img/"+fileName);				
+				
+				//service.insertFile(product);								
+				
+				model.addAttribute("image", multipartFile.getOriginalFilename());							
 				
 			} catch (Exception e) {
 				
-				//log.info("fail");
+				e.printStackTrace();
+				
+			} finally {
+
 			}
-			
 		}
 				
 		return "redirect:/product/read?";
 	}
-
 	
 	@PostMapping("/modify")
 	public String modify(HttpServletRequest req, HttpSession session, HttpServletResponse res, @RequestParam HashMap<String, String> map,
 			ProductVO product, RedirectAttributes rttr) throws Exception {
 		
-		//log.info("modify : " + board);
+		
 		if (service.modify(product)) {
 			
 			rttr.addFlashAttribute("result", "success");

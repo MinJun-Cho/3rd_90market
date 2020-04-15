@@ -26,17 +26,17 @@
             </div>
             <div class="category_button">
                 <div>
-                    <button class="ct1"><a href="#fashion">패션잡화</a></button>
-                    <button class="ct1"><a href="#women">여성의류</a></button>
-                    <button class="ct1"><a href="#men">남성의류</a></button>
-                    <button class="ct1"><a href="#Appliances">디지털/가전</a></button>
-                    <button class="ct1"><a href="#books">도서/티켓/취미/애완</a></button>
-                    <button class="ct1"><a href="#young">유아동/출산</a></button>
-                    <button class="ct1"><a href="#life">생활/문구/가구/식품</a></button>
-                    <button class="ct1"><a href="#beauti">뷰티/미용</a></button>
-                    <button class="ct2"><a href="#sport">스포츠/레저</a></button>
-                    <button class="ct2"><a href="#car">차량/오토바이</a></button>
-                    <button class="ct2"><a href="#etc">기타</a></button>
+                    <a href="#fashion"><button class="ct1">패션잡화</button></a>
+                    <a href="#women"><button class="ct1">여성의류</button></a>
+                    <a href="#men"><button class="ct1">남성의류</button></a>
+                    <a href="#Appliances"><button class="ct1">디지털/가전</button></a>
+                    <a href="#books"><button class="ct1">도서/티켓/취미/애완</button></a>
+                    <a href="#young"><button class="ct1">유아동/출산</button></a>
+                    <a href="#life"><button class="ct1">생활/문구/가구/식품</button></a>
+                    <a href="#beauti"><button class="ct1">뷰티/미용</button></a>
+                    <a href="#sport"><button class="ct2">스포츠/레저</button></a>
+                    <a href="#car"><button class="ct2">차량/오토바이</button></a>
+                    <a href="#etc"><button class="ct2">기타</button></a>
                     <button id="clickbtn"><img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAASCAYAAABvqT8MAAAAAXNSR0IArs4c6QAAAfZJREFUKBVtkstq21AQhi3pqCpWUllWkippCjY2WcWbLPoahS76Bl2XkscIhe7zAllkVbrMY8S0pGCwsWIS2U6ELFRfJPUbg4ubeGA0M2f+fy7nSKvX679KpVKEXmqaFsRx/D0MwwnxRtE5DYuieARcxndM06zWarUKvuSeieG6bh/wTzIf0BMIb3VdP/I874bu88FgkK+zlGEYAYA/s9lMxpCqVTpmFPEnk4lJHKIZuiRqOC9Qs9Fo7C8Wi10KfCKuQFpAGmG/lcvlsN1uPwpJ8Zmhc6XUXZZlAhoS63me70onChxMp1ODs6ngpMNKZBzd930XcoVd3hPvUeAEYsLZV+xImCspcHLmTknObds+JDYBvYNk072Nr9Y7rIhitWazuc1FHEI+B+hzNkazjXctBHQpgGmgSXeRQpZ+KobjOK8AfmThN9iXAIZcwhnE0TpBuhk8lryDy8yvAbjokDjmEm4hDVet9Var5SRJskPyM7rDY1rYCOI5e9x3Op2AgnPFclYURWaapvtU2OOwim4DHlNdFh1AlrdJ0UKROGZmj0pfSGxxeI3+Jr4gHvd6veXtCBgtKaoeYGVWGyv3PsKXV7/rdrvy28t/9E9k6VNACdV+4N/zG1xZlhX3+/2Y+L8/VVhC8Kgoo8WQHvgBH4IgSCS5Sf4Cbfj85T5s+hEAAAAASUVORK5CYII="
                             alt="화살표 아이콘" width="6" height="9">
