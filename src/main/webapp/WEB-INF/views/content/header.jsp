@@ -1,10 +1,12 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" language="java"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewpo.00rt" content="width=device-width, initial-scale=1.0">
     <title>구공마켓</title>
     <script src="https://kit.fontawesome.com/7b5ecf7db0.js" crossorigin="anonymous"></script>

@@ -1,11 +1,18 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" language="java"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% 
+	request.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html; charset=UTF-8");
+%>
 <%@ include file="/WEB-INF/views/content/header.jsp" %>
 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <section>
         <div class="sell">
             <div class="sell_info">
                 <h2>기본정보</h2>
             </div>
+            <form action="/product/postCreate" method="post" enctype="multipart/form-data" accept-charset="utf-8">
             <div class="sell_image">
                 <div>
                     <div class="sell_image_name">상품이미지</div>
@@ -14,7 +21,7 @@
                             <div><i class="fas fa-camera">
 
                                 </i>이미지등록하기
-                                <input type="file" accept="image/jpg, image/jpeg, image/png" multiple="" />
+                                <!-- <input type="file" name="file" multiple /> -->
                             </div>
                             <div class="sell_image_box2">
 
@@ -35,7 +42,7 @@
             <div class="sell_title_container">
                 <div class="sell_title_container_name">제목</div>
                 <div class="sell_title_container_input">
-                    <input type="text" placeholder="상품 제목을 입력해주세요." value="">
+                    <input type="text" placeholder="상품 제목을 입력해주세요." name="title">
                 </div>
             </div>
             <div class="sell_category_container">
@@ -64,7 +71,7 @@
                 </div>
                 <div class="sell_price_container">
                     <div>
-                        <input type="text" placeholder="숫자만 입력해주세요." value=""><span>원</span>
+                        <input type="text" placeholder="숫자만 입력해주세요." name="price"><span>원</span>
                     </div>
                 </div>
             </div>
@@ -74,7 +81,7 @@
                     설명
                 </div>
                 <div class="sell_Explanation_container">
-                    <textarea placeholder="상품설명을 입력해 주세요."></textarea>
+                    <textarea placeholder="상품설명을 입력해 주세요." name="content"></textarea>
                 </div>
             </div>
             <div class="sell_Quantity">
@@ -83,15 +90,16 @@
                 </div>
                 <div class="sell_Quantity_container">
                     <div>
-                        <input type="text" placeholder="1" value=""><span>개</span>
+                        <input type="text" placeholder="1" name="amount"><span>개</span>
                     </div>
                 </div>
             </div>
             <div class="sell_btn">
                 <div>
-                    <button>등록하기</button>
+                    <button type="submit">등록하기</button>
                 </div>
             </div>
+            </form>
         </div>
     </section>
     

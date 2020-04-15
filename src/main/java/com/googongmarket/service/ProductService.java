@@ -11,11 +11,11 @@ public interface ProductService {
 
 	public void create(ProductVO product);
 	
-	public void createFile(ProductVO product);
+	public void createFile(ImageVO image);
 	
 	public ProductVO get(int bno);
 	
-	public List<ImageVO> getFile(int bno);
+	public List<String> getFile(int bno);
 	
 	public boolean modify(ProductVO product);
 	

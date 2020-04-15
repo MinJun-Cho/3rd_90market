@@ -10,19 +10,23 @@
 		]]>
 	</select>
 	
-	<insert id="create">
-		INSERT INTO product(title, content, writer, category, amount, price, filepath)
-		VALUES(#{title}, #{content}, #{writer}, #{category}, #{amount}, #{price}, #{filepath})
+	<insert id="create" parameterType="com.googongmarket.domain.ProductVO" useGeneratedKeys="true" keyProperty="bno">
+		INSERT INTO product(title, content, seller, category, amount, price)
+		VALUES(#{title}, #{content}, #{seller}, #{category}, #{amount}, #{price})
 	</insert>
 	
-	<insert id="createSelectKey">
-		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+	<!-- <insert id="createSelectKey" parameterType="com.googongmarket.domain.ProductVO">
+		<selectKey keyProperty="bno" order="AFTER" resultType="int">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 		
-		INSERT INTO product(title, content, writer, category, amount, price, filepath)
-		VALUES(#{title}, #{content}, #{writer}, #{category}, #{amount}, #{price}, #{filepath})
-	</insert>
+		INSERT INTO product(title, content, seller, category, amount, price)
+		VALUES(#{title}, #{content}, #{seller}, #{category}, #{amount}, #{price})
+	</insert> -->
+	
+	<insert id="createFile" parameterType="com.googongmarket.domain.ImageVO">
+		INSERT INTO images(bno, filepath) VALUES(#{bno}, #{filepath})
+    </insert>
 	
 	<select id="read" resultType="com.googongmarket.domain.ProductVO">
 		SELECT * FROM product WHERE bno = #{bno}

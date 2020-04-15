@@ -55,7 +55,7 @@
                     <a href="/category/fashion">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <a href="info.html">
+                    <a href="/product/read">
                         <div class="box">
                             <div>
                                 <img src="/resources/img/logo.png" alt="제품사진 이미지">
@@ -95,6 +95,7 @@
                     </div>
                 </div>
             </div>
+            
             <!--//패션잡화-->
             <!--여성의류-->
             <div class="fashion" id="women">

@@ -16,9 +16,9 @@
                     <div class="info_container_info1">
                         <div class="info_container_info2">
                             <div class="info_container_info2_name">
-                                <div class='info_container_info2_name2'>제목</div>
+                                <div class='info_container_info2_name2'><c:out value="${product.title}" /></div>
                                 <div class='info_container_info2_name_price'>
-                                    <div>'가격'<span>원</span></div>
+                                    <div><c:out value="${product.price}" /><span>원</span></div>
                                 </div>
                             </div>
                             <div class="info_container_info2_info">

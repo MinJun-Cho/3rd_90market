@@ -4,12 +4,14 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.googongmarket.domain.ImageVO;
 import com.googongmarket.domain.ProductVO;
 import com.googongmarket.service.ProductService;
 
@@ -26,6 +29,7 @@ import com.googongmarket.service.ProductService;
 @RequestMapping("/product/*")
 public class ProductController {
 
+	@Autowired
 	private ProductService service;
 	
 	@GetMapping("create")
@@ -34,37 +38,34 @@ public class ProductController {
 		return "product/create";
 	}
 
-	@PostMapping("/create")
-	public String register(MultipartFile[] file, ProductVO product, RedirectAttributes rttr, Model model, HttpServletRequest request) {
+	@PostMapping("/postCreate")
+	public String postCreate(@RequestParam MultipartFile[] file, ProductVO product, ImageVO image, RedirectAttributes rttr, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
 		
-		rttr.addFlashAttribute("result", product.getBno());		
+		request.setCharacterEncoding("UTF-8");
+		rttr.addFlashAttribute("result", product.getBno());
+		
+		product.setSeller("hello");
+		product.setCategory("컴온요");
+		System.out.println("product!!!!!! \n" + product);
 		service.create(product);
-		int tmp = product.getBno();
+		model.addAttribute(product);
+		
+		int tmpBno = product.getBno();
 
 		for(MultipartFile multipartFile : file) {
 			
-			System.out.println("file.separator : "+File.separator);
-			
-			String root_path = request.getSession().getServletContext().getRealPath("/");
-			System.out.println("root_path : "+root_path);
-			String attach_path = "resources"+"/"+"img";
-			System.out.println("attach_path : "+attach_path);
-			String fileName = multipartFile.getOriginalFilename() ;			
-			File f = new File(root_path+attach_path+"/"+fileName);
-			
-			String fil = product.getFilepath();
-			System.out.println("요기요 : "+fil);
+			File f = new File(request.getSession().getServletContext().getRealPath("/") + "resources/itemimage/" + multipartFile.getOriginalFilename());
 			
 			try {
 				
 				multipartFile.transferTo(f);
-				System.out.println("f : "+f);
-				product.setBno(tmp);
-				product.setFilepath("/resources/img/"+fileName);				
+				image.setBno(tmpBno);
+				image.setFilepath("/resources/itemimage/"+ multipartFile.getOriginalFilename());				
 				
-				service.createFile(product);								
+				System.out.println("image!!!!!!!!\n " + image);
+				service.createFile(image);
 				
-				model.addAttribute("image", multipartFile.getOriginalFilename());							
+				//model.addAttribute("image", multipartFile.getOriginalFilename());					
 				
 			} catch (Exception e) {
 				
@@ -75,7 +76,7 @@ public class ProductController {
 			}
 		}
 				
-		return "redirect:/product/read?";
+		return "redirect:/product/read?bno=" + product.getBno();
 	}
 	
 	@PostMapping("/modify")
@@ -126,14 +127,22 @@ public class ProductController {
 			
 		}
 		
-		return "redirect:/product/read?";
+		return "redirect:/product/read";
 	}
 
-	@GetMapping({ "/get", "/modify" })
-	public void get(@RequestParam("bno") int bno, Model model) {
-		
+	@GetMapping("/read")
+	public void read(@RequestParam("bno") int bno, Model model, Model model1, HttpServletRequest request) {      
+	      
 		model.addAttribute("product", service.get(bno));
 		
+		System.out.println("product : " + service.get(bno));
+		
+		//final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
+		//Resource resource =  defaultResourceLoader.getResource("resources/img");
+		//log.info("resources : " +resource.toString());
+		//System.out.println("여기 : "+ service.getFile(bno));
+		//List<String> images = service.getFile(bno);
+		//model1.addAttribute("images", images);
 	}
 
 	@PostMapping("/delete")

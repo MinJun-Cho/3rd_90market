@@ -11,13 +11,11 @@ public interface ProductMapper {
 	
 	public void create(ProductVO product);
 	
-	public void createSelectKey(ProductVO product);
-	
-	public void createFile(ProductVO product);
+	public void createFile(ImageVO image);
 	
 	public ProductVO read(int bno);
 	
-	public List<ImageVO> getFile(int bno);
+	public List<String> getFile(int bno);
 	
 	public int delete(int bno);
 	
