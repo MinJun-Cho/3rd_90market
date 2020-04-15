@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.googongmarket.domain.MemberVO;
 import com.googongmarket.service.MemberService;
@@ -20,6 +21,7 @@ import com.googongmarket.validator.MemberValidator;
 import lombok.Setter;
 
 @Controller
+@RequestMapping("/member/*")
 public class MemberController {
 
 	@Setter(onMethod_ = {@Autowired})
@@ -29,44 +31,50 @@ public class MemberController {
 	@Lazy
 	private MemberVO loginMember;
 	
-	@GetMapping("/join")
+	@GetMapping("signup")
 	public String join(@ModelAttribute("memberVO") MemberVO memberVO) {
 		
-		return "join";
+		return "member/signup";
 	}
 	
-	@PostMapping("/postJoin")
+	@PostMapping("postSignup")
 	public String postJoin(@Valid @ModelAttribute("memberVO") MemberVO memberVO, BindingResult result) {
 		
 		if(result.hasErrors()) {
 			
-			return "join";
+			return "member/signup";
 		}
 		
 		service.joinMember(memberVO);
 		
-		return "join_success";
+		return "member/signup_success";
 	}
 	
-	@GetMapping("/modify")
+	@GetMapping("modify")
 	public String modify(@ModelAttribute("modifyMember") MemberVO modifyMember) {
 		
 		service.getModifyMemberInfo(modifyMember);
 		
-		return "modify";
+		return "member/modify";
 	}
 	
-	@PostMapping("/postModify")
+	@PostMapping("postModify")
 	public String postModify(@Valid @ModelAttribute("modifyMember") MemberVO modifyMember, BindingResult result) {
 		
 		if(result.hasErrors()) {
 			
-			return "modify";
+			return "member/modify";
 		}
 		
 		service.modifyMemberInfo(modifyMember);
 		
-		return "modify_success";
+		return "member/modify_success";
+	}
+	
+	@GetMapping("myshop")
+	public String myshop() {
+		
+		return "member/myshop";
 	}
 	
 	@InitBinder

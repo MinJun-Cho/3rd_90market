@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Not Login</title>
 <script>
-	alert("로그인 후 다시 시도해주세요.")
-	location.href="/login"
+	alert("로그인에 성공하였습니다.\n구공마켓에 방문해주셔서 감사합니다!")
+	location.href="/"
 </script>
 </head>
 </html>

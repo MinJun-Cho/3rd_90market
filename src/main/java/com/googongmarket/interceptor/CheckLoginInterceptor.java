@@ -22,7 +22,7 @@ public class CheckLoginInterceptor implements HandlerInterceptor {
 		if(loginMember.isMemberLogin() == false) {
 			
 			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath + "/not_login");
+			response.sendRedirect(contextPath + "/auth/not_login");
 			
 			return false;
 		}

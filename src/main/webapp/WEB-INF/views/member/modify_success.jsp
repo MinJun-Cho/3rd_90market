@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Modify Success</title>
 <script>
-	alert("성공적으로 수정되었습니다.")
-	location.href="/modify"
+	alert("회원정보가 성공적으로 수정되었습니다.")
+	location.href="/"
 </script>
 </head>
 </html>

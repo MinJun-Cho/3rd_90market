@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login Success</title>
 <script>
-	alert("로그인에 성공하였습니다.")
-	location.href="/"
+	alert("로그인에 실패하였습니다.\n이메일 또는 패스워드를 확인해주세요!")
+	location.href="/login?fail=true"
 </script>
 </head>
 </html>

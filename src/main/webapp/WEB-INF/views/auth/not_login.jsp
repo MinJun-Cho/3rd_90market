@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login Fail</title>
 <script>
-	alert("로그인에 실패하였습니다.")
-	location.href="/login?fail=true"
+	alert("인증된 사용자만 접근 가능합니다.\n로그인 후 다시 시도해주세요.")
+	location.href="/auth/login"
 </script>
 </head>
 </html>

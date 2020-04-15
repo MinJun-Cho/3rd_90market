@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.googongmarket.mapper.ProductMapper">
+	<select id="getList" resultType="com.googongmarket.domain.ProductVO">
+		<![CDATA[
+			SELECT * FROM product WHERE bno > 0
+		]]>
+	</select>
+	
+	<insert id="create">
+		INSERT INTO product(title, content, writer, category, amount, price, filepath)
+		VALUES(#{title}, #{content}, #{writer}, #{category}, #{amount}, #{price}, #{filepath})
+	</insert>
+	
+	<insert id="createSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		
+		INSERT INTO product(title, content, writer, category, amount, price, filepath)
+		VALUES(#{title}, #{content}, #{writer}, #{category}, #{amount}, #{price}, #{filepath})
+	</insert>
+	
+	<select id="read" resultType="com.googongmarket.domain.ProductVO">
+		SELECT * FROM product WHERE bno = #{bno}
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM product WHERE bno = #{bno}
+	</delete>
+	
+	<update id="update">
+		UPDATE product SET
+		title = #{title}, 
+		content = #{content}, 
+		writer = #{writer}, 
+		category = #{category}, 
+		amount = #{amount}, 
+		price = #{price}, 
+		filepath = #{filepath}
+		WHERE bno = #{bno}		
+	</update>
+</mapper>

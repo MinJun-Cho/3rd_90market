@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Logout Success</title>
 <script>
-	alert("로그아웃 되었습니다.")
+	alert("로그아웃 되었습니다.\n이용해주셔서 감사합니다!")
 	location.href="/"
 </script>
 </head>

@@ -19,7 +19,7 @@
 	        <c:if test="${fail == true}">
 	                    로그인에 실패하였습니다. 이메일 또는 패스워드를 확인해주세요.
 	        </c:if><br>
-	        <form:form action="/postLogin" method="post" modelAttribute="tempLoginMember">
+	        <form:form action="/auth/postLogin" method="post" modelAttribute="tempLoginMember">
 	            <div>
 	                <div class="name">Email</div>
 	                <div>
@@ -36,14 +36,14 @@
 	                    </div>
 	                </div>
 	            </div>
-	            <div class='btn'>
+	            <div class="btn">
 	                <a href="${url}">
 					<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
 	            <div class="loginbtn">
-	                <form:button type="submit" class='btn3'>LOGIN</form:button>
+	                <form:button type="submit" class="btn3">로그인</form:button>
 	            </div>
 	            <div id="join">
-	            <div>아직 계정이 없으세요?<a href="join">회원가입하기</a></div>
+	            <div>아직 계정이 없으세요?<a href="/member/signup">회원가입하기</a></div>
 	                </div>
 	            </div>
 	        </form:form>

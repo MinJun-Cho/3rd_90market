@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 정보</title>
+<title>Success</title>
 </head>
 <body>
-	<h1>상품 정보</h1>
-	<h1>이곳은 로그인한 사용자만 접근할 수 있습니다.</h1>
+	<h1>회원가입 성공</h1>
+	<p>${memberVO.username}님, 환영합니다!</p>
+	<p>구공마켓에 가입해주셔서 감사합니다.</p>
 	<input type="button" value="메인" onclick="location.href='/'" />
 </body>
 </html>

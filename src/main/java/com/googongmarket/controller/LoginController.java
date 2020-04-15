@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.googongmarket.domain.MemberVO;
@@ -24,6 +25,7 @@ import com.googongmarket.validator.MemberValidator;
 import lombok.Setter;
 
 @Controller
+@RequestMapping("/auth/*")
 public class LoginController {
 	
 	@Setter(onMethod_ = {@Autowired})
@@ -36,7 +38,7 @@ public class LoginController {
 	@Lazy
 	private MemberVO loginMember;
 
-	@GetMapping("/login")
+	@GetMapping("login")
 	public String login(@ModelAttribute("tempLoginMember") MemberVO tempLoginMember,
 						@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model, HttpSession session) {
 		
@@ -46,40 +48,46 @@ public class LoginController {
 		
 		model.addAttribute("url", naverAuthUrl);
 		
-		return "login";
+		return "auth/login";
 	}
 	
-	@PostMapping("/postLogin")
-	public String postLogin(@Valid @ModelAttribute("tempLoginMember") MemberVO tempLoginMember, BindingResult result) {
+	@PostMapping("postLogin")
+	public String postLogin(@Valid @ModelAttribute("tempLoginMember") MemberVO tempLoginMember, BindingResult result, HttpSession session) {
 		
 		if(result.hasErrors()) {
 			
-			return "login";
+			return "auth/login";
 		}
 		
 		service.getLoginMemberInfo(tempLoginMember);
 		
 		if(loginMember.isMemberLogin() == true) {
 			
-			return "login_success";
+			service.getModifyMemberInfo(tempLoginMember);
+			
+			session.setAttribute("username", tempLoginMember.getUsername());
+			
+			return "auth/login_success";
+			
 		} else {
 			
-			return "login_fail";
+			return "auth/login_fail";
+			
 		}
 	}
 	
-	@GetMapping("/logout")
+	@GetMapping("logout")
 	public String logout() {
 		
 		loginMember.setMemberLogin(false);
 		
-		return "logout";
+		return "auth/logout";
 	}
 	
-	@GetMapping("/not_login")
+	@GetMapping("not_login")
 	public String not_login() {
 		
-		return "not_login";
+		return "auth/not_login";
 	}
 	
 	@InitBinder

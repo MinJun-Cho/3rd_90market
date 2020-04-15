@@ -22,6 +22,7 @@
 	<context:component-scan base-package="com.googongmarket.service" />
 	<context:component-scan base-package="com.googongmarket.domain" />
 	
+	<!-- 유효성 검사 -->
 	<beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<beans:property name="basenames">
 			<beans:list>
@@ -34,13 +35,20 @@
 		<beans:constructor-arg ref="messageSource" />
 	</beans:bean>
 	
+	<!-- 로그인하지 않은 사용자 접근 제한 경로 -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/modify" />
-			<mapping path="/logout" />
-			<mapping path="/product" />
+			<mapping path="/member/modify" />
+			<mapping path="/member/myshop" />
+			<mapping path="/auth/logout" />
+			<mapping path="/product/**" />
 			<beans:bean class="com.googongmarket.interceptor.CheckLoginInterceptor" />
 		</interceptor>
 	</interceptors>
+	
+	<!-- file upload -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</beans:bean>
 	
 </beans:beans>

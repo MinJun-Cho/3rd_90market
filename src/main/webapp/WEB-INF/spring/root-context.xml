@@ -29,6 +29,11 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="52428800"></property>
+		<property name="defaultEncoding" value="utf-8"></property>
+	</bean>
+	
 	<mybatis-spring:scan base-package="com.googongmarket.mapper"/>
 	
 	<bean id="loginMember" class="com.googongmarket.domain.MemberVO" scope="session" />
