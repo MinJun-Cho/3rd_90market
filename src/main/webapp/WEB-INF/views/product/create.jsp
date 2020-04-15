@@ -94,5 +94,7 @@
             </div>
         </div>
     </section>
+    
+    <script src="/resources/js/imgupload.js" />
 
 <%@ include file="/WEB-INF/views/content/footer.jsp" %>
