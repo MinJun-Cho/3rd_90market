@@ -2,6 +2,7 @@ package com.googongmarket.service;
 
 import java.util.List;
 
+import com.googongmarket.domain.ImageVO;
 import com.googongmarket.domain.ProductVO;
 
 public interface ProductService {
@@ -10,7 +11,11 @@ public interface ProductService {
 
 	public void create(ProductVO product);
 	
+	public void createFile(ProductVO product);
+	
 	public ProductVO get(int bno);
+	
+	public List<ImageVO> getFile(int bno);
 	
 	public boolean modify(ProductVO product);
 	

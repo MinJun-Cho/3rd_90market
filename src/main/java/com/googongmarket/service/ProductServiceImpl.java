@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.googongmarket.domain.ImageVO;
 import com.googongmarket.domain.ProductVO;
 import com.googongmarket.mapper.ProductMapper;
 
@@ -25,12 +26,24 @@ public class ProductServiceImpl implements ProductService {
 		//log.info("register"+board);
 		mapper.createSelectKey(product);
 	}
+	
+	@Override
+	public void createFile(ProductVO product) {
+		
+		mapper.createFile(product);
+	}
 
 	@Override
 	public ProductVO get(int bno) {
 		
 		//log.info("get ...."+bno);
 		return mapper.read(bno);
+	}
+	
+	@Override
+	public List<ImageVO> getFile(int bno) {
+		
+		return mapper.getFile(bno);
 	}
 
 	@Override

@@ -62,7 +62,7 @@ public class ProductController {
 				product.setBno(tmp);
 				product.setFilepath("/resources/img/"+fileName);				
 				
-				//service.insertFile(product);								
+				service.createFile(product);								
 				
 				model.addAttribute("image", multipartFile.getOriginalFilename());							
 				
@@ -132,15 +132,12 @@ public class ProductController {
 	@GetMapping({ "/get", "/modify" })
 	public void get(@RequestParam("bno") int bno, Model model) {
 		
-		//log.info("get");
 		model.addAttribute("product", service.get(bno));
 		
 	}
 
 	@PostMapping("/delete")
 	public String delete(@RequestParam("bno") int bno, RedirectAttributes rttr) {
-		
-		//log.info("remove : " + bno);
 		
 		if (service.delete(bno)) {
 			
