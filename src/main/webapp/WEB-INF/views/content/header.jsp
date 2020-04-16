@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="/resources/css/index.css?ver=0.3">
 </head>
 <body>
+	<aside>
+        <a id="back-to-top" href="#">Top</a>
+    </aside>
+
     <header class='header'>
         <div class="top">
             <ul class="ul_list">
