@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% 
-	request.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html; charset=UTF-8");
-%>
 <%@ include file="/WEB-INF/views/content/header.jsp" %>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <section>
         <div class="sell">
             <div class="sell_info">
                 <h2>기본정보</h2>
             </div>
-            <form action="/product/postCreate" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+            <form action="/product/postCreate" method="post" enctype="multipart/form-data">
             <div class="sell_image">
                 <div>
                     <div class="sell_image_name">상품이미지</div>
@@ -21,9 +16,9 @@
                             <div><i class="fas fa-camera">
 
                                 </i>이미지등록하기
-                                <!-- <input type="file" name="file" multiple /> -->
+                                <input type="file" name="file" accept="image/jpg, image/jpeg, image/png" multiple="multiple" />
                             </div>
-                            <div class="sell_image_box2">
+                            <div class='sell_image_box2'>
 
                                 <button type="button" id="delete"></button>
                             </div>
@@ -40,8 +35,8 @@
                 </div>
             </div>
             <div class="sell_title_container">
-                <div class="sell_title_container_name">제목</div>
-                <div class="sell_title_container_input">
+                <div class='sell_title_container_name'>제목</div>
+                <div class='sell_title_container_input'>
                     <input type="text" placeholder="상품 제목을 입력해주세요." name="title">
                 </div>
             </div>
@@ -49,27 +44,28 @@
                 <div class="sell_category_container_title">
                     <div>카테고리</div>
                 </div>
-                <div class="sell_category_container_ul">
+                <div class='sell_category_container_ul'>
                     <ul>
-                        <li><button type="button">패션잡화</button></li>
-                        <li><button type="button">여성의류</button></li>
-                        <li><button type="button">남성의류</button></li>
-                        <li><button type="button">디지털가전</button></li>
-                        <li><button type="button">도서/티켓/취미/애완</button></li>
-                        <li><button type="button">유아동/출산</button></li>
-                        <li><button type="button">생활/문구/가구/식품</button></li>
-                        <li><button type="button">뷰티/미용</button></li>
-                        <li><button type="button">스포츠/레저</button></li>
-                        <li><button type="button">차량/오토바이</button></li>
-                        <li><button type="button">기타</button></li>
+                        <li><button type="button" name="category" value="fashoin">패션잡화</button></li>
+                        <li><button type="button" name="category" value="women">여성의류</button></li>
+                        <li><button type="button" name="category" value="men">남성의류</button></li>
+                        <li><button type="button" name="category" value="appliances">디지털가전</button></li>
+                        <li><button type="button" name="category" value="books">도서/티켓/취미/애완</button></li>
+                        <li><button type="button" name="category" value="young">유아동/출산</button></li>
+                        <li><button type="button" name="category" value="life">생활/문구/가구/식품</button></li>
+                        <li><button type="button" name="category" value="beauti">뷰티/미용</button></li>
+                        <li><button type="button" name="category" value="sport">스포츠/레저</button></li>
+                        <li><button type="button" name="category" value="car">차량/오토바이</button></li>
+                        <li><button type="button" name="category" value="etc">기타</button></li>
                     </ul>
                 </div>
+                <div class="cate1">현재 선택한 카테고리:<span></span></div>
             </div>
-            <div class="sell_price">
-                <div class="sell_price_name">
+            <div class='sell_price'>
+                <div class='sell_price_name'>
                     가격
                 </div>
-                <div class="sell_price_container">
+                <div class='sell_price_container'>
                     <div>
                         <input type="text" placeholder="숫자만 입력해주세요." name="price"><span>원</span>
                     </div>
@@ -77,24 +73,24 @@
             </div>
 
             <div class="sell_Explanation">
-                <div class="sell_Explanation_name">
+                <div class='sell_Explanation_name'>
                     설명
                 </div>
-                <div class="sell_Explanation_container">
+                <div class='sell_Explanation_container'>
                     <textarea placeholder="상품설명을 입력해 주세요." name="content"></textarea>
                 </div>
             </div>
-            <div class="sell_Quantity">
-                <div class="sell_Quantity_name">
+            <div class='sell_Quantity'>
+                <div class='sell_Quantity_name'>
                     수량
                 </div>
-                <div class="sell_Quantity_container">
+                <div class='sell_Quantity_container'>
                     <div>
                         <input type="text" placeholder="1" name="amount"><span>개</span>
                     </div>
                 </div>
             </div>
-            <div class="sell_btn">
+            <div class='sell_btn'>
                 <div>
                     <button type="submit">등록하기</button>
                 </div>
@@ -103,6 +99,7 @@
         </div>
     </section>
     
-    <script src="/resources/js/imgupload.js" />
+    <script src="/resources/js/menu.js"></script>
+    <script src="/resources/js/imgupload.js?ver=0.1"></script>
 
 <%@ include file="/WEB-INF/views/content/footer.jsp" %>

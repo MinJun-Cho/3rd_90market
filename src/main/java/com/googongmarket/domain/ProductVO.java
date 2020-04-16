@@ -11,6 +11,6 @@ public class ProductVO {
 	private String seller;
 	private String category;
 	private int amount;
-	private int price;
+	private String price;
 	//private String filepath;
 }

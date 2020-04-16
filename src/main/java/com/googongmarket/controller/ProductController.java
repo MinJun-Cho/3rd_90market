@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,14 +40,19 @@ public class ProductController {
 	}
 
 	@PostMapping("/postCreate")
-	public String postCreate(@RequestParam MultipartFile[] file, ProductVO product, ImageVO image, RedirectAttributes rttr, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
-		
-		request.setCharacterEncoding("UTF-8");
-		rttr.addFlashAttribute("result", product.getBno());
+	public String postCreate(MultipartFile[] file, ProductVO product, ImageVO image, Model model, Model model1, HttpServletRequest request) throws UnsupportedEncodingException {
 		
 		product.setSeller("hello");
-		product.setCategory("컴온요");
-		System.out.println("product!!!!!! \n" + product);
+		product.setCategory("fashion");
+		
+		String title = product.getTitle();
+		title = new String(title.getBytes("8859_1"), "UTF-8");
+		product.setTitle(title);
+		
+		String content = product.getContent();
+		content = new String(content.getBytes("8859_1"), "UTF-8");
+		product.setContent(content);
+		
 		service.create(product);
 		model.addAttribute(product);
 		
@@ -73,6 +79,9 @@ public class ProductController {
 				
 			} finally {
 
+				service.readFile(tmpBno);
+				model1.addAttribute("image", image.getFilepath());
+				System.out.println(service.readFile(tmpBno));
 			}
 		}
 				
@@ -135,14 +144,15 @@ public class ProductController {
 	      
 		model.addAttribute("product", service.get(bno));
 		
+		
 		System.out.println("product : " + service.get(bno));
 		
-		//final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
-		//Resource resource =  defaultResourceLoader.getResource("resources/img");
-		//log.info("resources : " +resource.toString());
-		//System.out.println("여기 : "+ service.getFile(bno));
-		//List<String> images = service.getFile(bno);
-		//model1.addAttribute("images", images);
+//		final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
+//		Resource resource =  defaultResourceLoader.getResource("resources/img");
+//		log.info("resources : " +resource.toString());
+//		System.out.println("여기 : "+ service.getFile(bno));
+		List<String> images = service.getFile(bno);
+		model1.addAttribute("images", images);
 	}
 
 	@PostMapping("/delete")

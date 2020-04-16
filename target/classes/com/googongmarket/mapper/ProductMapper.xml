@@ -15,21 +15,20 @@
 		VALUES(#{title}, #{content}, #{seller}, #{category}, #{amount}, #{price})
 	</insert>
 	
-	<!-- <insert id="createSelectKey" parameterType="com.googongmarket.domain.ProductVO">
-		<selectKey keyProperty="bno" order="AFTER" resultType="int">
-			SELECT LAST_INSERT_ID()
-		</selectKey>
-		
-		INSERT INTO product(title, content, seller, category, amount, price)
-		VALUES(#{title}, #{content}, #{seller}, #{category}, #{amount}, #{price})
-	</insert> -->
-	
 	<insert id="createFile" parameterType="com.googongmarket.domain.ImageVO">
 		INSERT INTO images(bno, filepath) VALUES(#{bno}, #{filepath})
     </insert>
 	
 	<select id="read" resultType="com.googongmarket.domain.ProductVO">
 		SELECT * FROM product WHERE bno = #{bno}
+	</select>
+	
+	<select id="readFile" resultType="com.googongmarket.domain.ImageVO">
+		SELECT filepath FROM images WHERE bno = #{bno} ORDER BY regdate LIMIT 1
+	</select>
+	
+	<select id="getFile" resultType="java.lang.String">
+		SELECT filepath FROM images WHERE bno = #{bno}
 	</select>
 	
 	<delete id="delete">

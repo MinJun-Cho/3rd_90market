@@ -15,6 +15,8 @@ public interface ProductMapper {
 	
 	public ProductVO read(int bno);
 	
+	public ImageVO readFile(int bno);
+	
 	public List<String> getFile(int bno);
 	
 	public int delete(int bno);

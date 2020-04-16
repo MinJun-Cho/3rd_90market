@@ -9,22 +9,21 @@ li {
 
 a {
     text-decoration: none;
-    color:inherit;
+    color: inherit;
 }
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     position: relative;
-}  
+}
 
 #back-to-top {
     position: fixed;
-    bottom: 3em;
+    bottom: 100px;
     right: 3em;
-    background-color: black;
-    color: white;
-    border: none;
+    background-color: white;
+    color: black;
     border-radius: 5px;
     padding: 1em;
     text-transform: uppercase;
@@ -34,14 +33,26 @@ body {
     transition: all .3s ease-in-out;
     display: inline-block;
     text-decoration: none;
-    font-size: .75em;
-    opacity: 0;
+    opacity: 0.1;
 }
 
-    #back-to-top:hover {
-        background-color:black;
-        padding: 1em 3em;
-    }
+button:focus {
+    outline: 0;
+}
+
+input{
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input:focus {
+    outline: 0;
+}
+
+#back-to-top:hover {
+    background-color: white;
+    padding: 1em 3em;
+}
 
 #back-to-top.visible {
     opacity: 1;
@@ -58,12 +69,12 @@ body {
     line-height: 45px;
 }
 
-.ul_list li{
+.ul_list li {
     float: right;
-    margin-left: 25px;   
+    margin-left: 25px;
 }
 
-.ul_list li a{
+.ul_list li a {
     display: block;
     width: 100%;
     height: 100%;
@@ -76,6 +87,7 @@ body {
 nav {
     margin: 0 auto;
 }
+
 .logo_container {
     margin: 0 auto;
     width: 1024px;
@@ -87,14 +99,14 @@ nav {
     float: left;
 }
 
-.logo_container h1 a img{
+.logo_container h1 a img {
     width: 150px;
     height: 75px;
     left: 20px;
     margin-right: 70px;
 }
 
-.logo_container h2{
+.logo_container h2 {
     margin-left: 230px;
     width: 450px;
     height: 40px;
@@ -102,19 +114,19 @@ nav {
     position: relative;
     border-width: 2px;
     border-style: solid;
-    border-color:red;
+    border-color: red;
     border-image: initial;
     top: 20px;
 }
 
-.logo_container h2 input{
+.logo_container h2 input {
     border: none;
     width: 385px;
     height: 20px;
     margin-left: 10px;
 }
 
-.logo_container h2 input:focus{
+.logo_container h2 input:focus {
     outline: none;
 }
 
@@ -131,7 +143,7 @@ nav {
     margin-top: -10px;
 }
 
-.logo_container ul li{
+.logo_container ul li {
     float: right;
     margin-left: 24px;
     font-weight: bold;
@@ -140,13 +152,14 @@ nav {
 .logo_container ul li span {
     margin-left: 10px;
     width: 51px;
-    height:20px;
+    height: 20px;
 }
 
 .menu {
     border-bottom: 1px solid black;
 }
-.menu h2{
+
+.menu h2 {
     margin: 0 auto;
     width: 1024px;
     height: 70px;
@@ -157,9 +170,9 @@ nav {
 .fa-bars:before {
     margin-left: 15px;
     padding-bottom: 5px;
-}    
+}
 
-.menu ul{
+.menu ul {
     width: 150px;
     margin-left: -20px;
     margin-top: 30px;
@@ -174,7 +187,7 @@ nav {
     display: none;
 }
 
-.menu ul h3{
+.menu ul h3 {
     border-bottom: 1px solid black;
 }
 
@@ -182,18 +195,20 @@ nav {
     font-weight: normal;
     font-size: 15px;
 }
+
 /*slide*/
 
-.div_container{
+.div_container {
     margin: 0 auto;
     width: 1024px;
     position: relative;
     overflow: hidden;
     border: 1px solid;
+    border-top: none;
     transition: all 3s ease-in;
 }
 
-.slider_container{
+.slider_container {
     position: absolute;
     height: 300px;
     width: 100%;
@@ -205,7 +220,7 @@ nav {
 
 .slider_container li {
     -webkit-transition: all 2s ease-in;
-    transition: all 2s ease-in;
+    transition: all 500ms ease 0s;
 }
 
 
@@ -213,8 +228,9 @@ nav {
     position: absolute;
     width: 100%;
     padding: 0 10%;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
+    opacity: 1;
     box-sizing: border-box;
     overflow: hidden;
     text-align: center;
@@ -222,7 +238,8 @@ nav {
     font-weight: bold;
 }
 
-#prev, #next {
+#prev,
+#next {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -236,7 +253,8 @@ nav {
     transition: all 3s ease-in;
 }
 
-#prev.disabled, #next.disabled {
+#prev.disabled,
+#next.disabled {
     display: none;
 }
 
@@ -254,27 +272,28 @@ nav {
     background-image: url(../img/arrow-right-out.svg);
 }
 
-#next:hover{
+#next:hover {
     background-image: url(../img/arrow-right-over.svg);
 }
+
 /*slide*/
 
-.main{
+.main {
     background-color: rgb(249, 249, 249);
     box-sizing: border-box;
 }
 
-.section_category{
+.section_category {
     margin: 0 auto;
     width: 1024px;
-    padding: 35px 0;    
+    padding: 35px 0;
 }
 
-.section_category h2{
-    margin-bottom: 10px;    
+.section_category h2 {
+    margin-bottom: 10px;
 }
 
-.category_button{
+.category_button {
     width: 100%;
     height: 50px;
     overflow: hidden;
@@ -283,12 +302,20 @@ nav {
     cursor: pointer;
 }
 
-.category_button div{
-    display: flex;
-    
+
+.category_button div .ct1 {
+    cursor: pointer;
 }
 
-.category_button div .colorbtn2{
+.category_button div .ct2 {
+    cursor: pointer;
+}
+
+.category_button div {
+    display: flex;
+}
+
+.category_button div .colorbtn2 {
     flex-shrink: 0;
     text-align: center;
     margin-left: -1px;
@@ -302,11 +329,24 @@ nav {
     border-width: 0px;
     border-style: initial;
     border-color: initial;
-    border-image: initial
+    border-image: initia;
+    cursor: pointer;
+}
+
+.sell_category_container .cate1 {
+    display: none;
+    margin-left: 20px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.sell_category_container .cate1 span {
+    margin-left: 5px;
+    color: red;
 }
 
 
-.category_button div button{
+.category_button div button {
     width: 126px;
     height: 50px;
     flex-shrink: 0;
@@ -324,13 +364,6 @@ nav {
     background: rgb(255, 255, 255);
 }
 
-.category_button div .ct1{
-    cursor: pointer;
-}
-
-.category_button div .ct2{
-    cursor: pointer;
-}
 
 
 #clickbtn {
@@ -362,27 +395,27 @@ nav {
     border-bottom: 1px solid black;
 }
 
-.fashion:last-child{
+.fashion:last-child {
     border: 1px solid white;
 }
 
-.fashion .name{
+.fashion .name {
     font-size: 20px;
     margin-top: 30px;
     margin-bottom: 40px;
 }
 
-.fashion .name a{
+.fashion .name a {
     color: rgb(204, 204, 204);
     margin-left: 10px;
 }
 
-.fashion .box_container{
+.fashion .box_container {
     display: inline-block;
     margin-bottom: 60px;
 }
 
-.fashion .box_container .box{
+.fashion .box_container .box {
     float: left;
     width: 240px;
     height: 274px;
@@ -391,13 +424,13 @@ nav {
     border: 1px solid black;
 }
 
-.fashion .box_container .box div img{
+.fashion .box_container .box div img {
     width: 210px;
     height: 210px;
     margin-left: 12px;
 }
 
-.title{
+.title {
     font-size: 14px;
     padding-bottom: 20px;
     text-align: center;
@@ -405,21 +438,22 @@ nav {
     font-weight: 600;
 }
 
-.price{
+.price {
     text-align: center;
     font-size: 16px;
     font-weight: 600;
 }
 
-footer{
+footer {
     border-top: 1px solid white;
 }
-.inner{
+
+.inner {
     margin: 0 auto;
     width: 1024px;
 }
 
-.inner_Logo{
+.inner_Logo {
     padding: 0px 10px 30px 10px;
 }
 
@@ -427,7 +461,7 @@ footer{
     margin-top: 30px;
 }
 
-.inner .ftLogo img{
+.inner .ftLogo img {
     width: 91px;
     height: 50px;
 }
@@ -438,7 +472,7 @@ footer{
     font-size: 15px;
 }
 
-.inner .list li{
+.inner .list li {
     font-size: 15px;
     line-height: 2.57;
     letter-spacing: 2.2px;
@@ -446,7 +480,7 @@ footer{
     font-weight: bold;
 }
 
-.inner .list li:last-child{
+.inner .list li:last-child {
     margin-left: 10px;
 }
 
@@ -455,14 +489,14 @@ footer{
     border-bottom: 1px solid;
 }
 
-.myshop_container{
+.myshop_container {
     margin: 0 auto;
     width: 1024px;
     margin-top: 30px;
 }
 
 .myshop_container .myshop_container_top {
-    border: 1px solid ;
+    border: 1px solid;
     height: 310px;
     overflow: hidden;
 }
@@ -476,7 +510,7 @@ footer{
     display: inline-block;
 }
 
-.myshop_container .myshop_container_top .myshop_container_top_box div button{
+.myshop_container .myshop_container_top .myshop_container_top_box div button {
     width: 106px;
     height: 40px;
     font-size: 13px;
@@ -491,10 +525,10 @@ footer{
     float: right;
     width: 710px;
     height: 310px;
-    
+
 }
 
-.myshop_container_top_contents_name{
+.myshop_container_top_contents_name {
     font-size: 20px;
     font-weight: bold;
     margin-top: 25px;
@@ -502,7 +536,7 @@ footer{
     margin-left: 20px;
 }
 
-.btn{
+.btn {
     border: 1px solid rgb(136, 136, 136);
     background-color: white;
     color: rgb(136, 136, 136);
@@ -540,12 +574,17 @@ footer{
     cursor: pointer;
 }
 
+
+.myshop_container_bottom_box button:focus {
+    outline: 0;
+}
+
 #product {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 30px;
     display: none;
-    
+
 }
 
 #product3 {
@@ -553,16 +592,16 @@ footer{
     font-weight: bold;
     margin-bottom: 30px;
     display: none;
-    
+
 }
 
 
 
-#product div span{
+#product div span {
     color: red;
 }
 
-#product3 div span{
+#product3 div span {
     color: red;
 }
 
@@ -591,13 +630,13 @@ footer{
     margin-left: 255px;
 }
 
-.pargination{
+.pargination {
     display: inline-block;
     padding: 0;
     margin-bottom: 20px;
 }
 
-.pargination li{
+.pargination li {
     display: inline;
     text-align: center;
 }
@@ -616,7 +655,7 @@ footer{
     padding: 0;
     width: 30px;
     height: 30px;
-    border:1px solid;
+    border: 1px solid;
 }
 
 .sell {
@@ -628,7 +667,7 @@ footer{
     margin: 0 auto;
 }
 
-.sell .sell_info{
+.sell .sell_info {
     display: block;
 }
 
@@ -641,25 +680,25 @@ footer{
     border-bottom: 1px solid rgb(30, 29, 41);
 }
 
-.sell .sell_image{
+.sell .sell_image {
     width: 100%;
     display: flex;
     padding: 2rem 0px;
     border-bottom: 1px solid
 }
 
-.sell .sell_image .sell_image_name{
+.sell .sell_image .sell_image_name {
     width: 168px;
     font-size: 18px;
     font-weight: bold;
     margin-left: 10px;
 }
 
-.sell .sell_image .sell_image_box{
+.sell .sell_image .sell_image_box {
     flex: 1 1 0%;
 }
 
-.sell .sell_image .sell_image_box .sell_image_box1{
+.sell .sell_image .sell_image_box .sell_image_box1 {
     display: flex;
     width: 1024px;
     flex-wrap: wrap;
@@ -688,12 +727,12 @@ footer{
     left: 150px;
 }
 
-.sell .sell_image .sell_image_box .sell_image_box1 .sell_image_box2{
+.sell .sell_image .sell_image_box .sell_image_box1 .sell_image_box2 {
     display: none;
 }
 
 
-.sell .sell_image .sell_image_box .sell_image_box1 .sell_image_box2 button{
+.sell .sell_image .sell_image_box .sell_image_box1 .sell_image_box2 button {
     width: 1.5rem;
     height: 1.5rem;
     background-size: 12px 12px;
@@ -703,12 +742,11 @@ footer{
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 50%;
-    color: white;
 }
 
 
 
-.sell .sell_image .sell_image_box .sell_image_box1 div input{
+.sell .sell_image .sell_image_box .sell_image_box1 div input {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -720,12 +758,13 @@ footer{
     font-size: 0px;
 }
 
-.sell .sell_image .sell_image_box ul{
+.sell .sell_image .sell_image_box ul {
     font-size: 14px;
     margin-left: 150px;
     font-weight: 500;
 }
-#sell_first{
+
+#sell_first {
     font-size: 15px;
     font-weight: 900;
 }
@@ -734,10 +773,10 @@ footer{
     width: 100%;
     display: flex;
     padding: 2rem 0px;
-    border-bottom: 1px solid ;
+    border-bottom: 1px solid;
 }
 
-.sell_title_container .sell_title_container_name{
+.sell_title_container .sell_title_container_name {
     width: 10.5rem;
     font-size: 18px;
     font-weight: bold;
@@ -746,27 +785,31 @@ footer{
     margin-right: -30px;
 }
 
-.sell_title_container .sell_title_container_input{
+.sell_title_container .sell_title_container_input {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     flex: 1 1 0%;
 }
 
-.sell_title_container .sell_title_container_input input{
+.sell_title_container .sell_title_container_input input {
     height: 3rem;
     width: 80%;
     padding: 0px 1rem;
 }
 
-.sell_category_container{
+.sell_title_container .sell_title_container_input input:focus {
+    outline: 0;
+}
+
+.sell_category_container {
     width: 100%;
     display: flex;
     padding: 2rem 0px;
     border-bottom: 1px solid
 }
 
-.sell_category_container .sell_category_container_title{
+.sell_category_container .sell_category_container_title {
     width: 10.5rem;
     font-weight: bold;
     font-size: 18px;
@@ -775,7 +818,7 @@ footer{
     margin-right: -31px;
 }
 
-.sell_category_container .sell_category_container_ul{
+.sell_category_container .sell_category_container_ul {
     display: flex;
     width: 30%;
     height: 10rem;
@@ -786,23 +829,23 @@ footer{
     border-image: initial;
 }
 
-.sell_category_container .sell_category_container_ul ul{
+.sell_category_container .sell_category_container_ul ul {
     width: 284px;
     height: 100%;
 }
 
-.sell_category_container .sell_category_container_ul ul li{
+.sell_category_container .sell_category_container_ul ul li {
     width: 100%;
     height: 40px;
     -webkit-box-align: center;
     align-items: center;
 }
 
-.sell_category_container .sell_category_container_ul ul li button{
+.sell_category_container .sell_category_container_ul ul li input{
     width: 100%;
     height: 100%;
     padding: 0px 1.5rem;
-    border: none;
+    border: 0;
     background-color: white;
     cursor: pointer;
     font-size: 15px;
@@ -812,6 +855,24 @@ footer{
     letter-spacing: -0.5px;
     font-weight: 600;
 }
+
+
+.sell_category_container .sell_category_container_ul ul li .red {
+    width: 100%;
+    height: 100%;
+    padding: 0px 1.5rem;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+    font-size: 15px;
+    direction: ltr;
+    text-align: left;
+    color: red;
+    letter-spacing: -0.5px;
+    font-weight: 600;
+    outline-color: white;
+}
+
 
 .sell_state {
     width: 100%;
@@ -852,14 +913,14 @@ footer{
     cursor: pointer;
 }
 
-.sell_exchange{
+.sell_exchange {
     width: 100%;
     display: flex;
     padding: 2rem 0px;
     border-bottom: 1px solid;
 }
 
-.sell_exchange .sell_exchange_name{
+.sell_exchange .sell_exchange_name {
     width: 10.5rem;
     font-weight: bold;
     font-size: 18px;
@@ -886,7 +947,7 @@ footer{
     margin-right: 2rem;
 }
 
-.sell_exchange_container ul li input{
+.sell_exchange_container ul li input {
     margin-right: 10px;
     cursor: pointer;
 }
@@ -898,7 +959,7 @@ footer{
     border-bottom: 1px solid;
 }
 
-.sell_price_name{
+.sell_price_name {
     width: 10.5rem;
     font-weight: bold;
     font-size: 18px;
@@ -922,7 +983,11 @@ footer{
     margin-right: 1rem;
 }
 
-.sell_price_container div span{
+.sell_price_container div input:focus {
+    outline: 0;
+}
+
+.sell_price_container div span {
     font-size: 16px;
     font-weight: bold;
 }
@@ -948,7 +1013,7 @@ footer{
     border-bottom: 1px solid;
 }
 
-.sell_Explanation_name{
+.sell_Explanation_name {
     width: 10.5rem;
     font-weight: bold;
     font-size: 18px;
@@ -957,7 +1022,7 @@ footer{
     margin-right: -31px;
 }
 
-.sell_Explanation_container{
+.sell_Explanation_container {
     flex: 1 1 0%;
 }
 
@@ -1004,7 +1069,11 @@ footer{
     margin-right: 1rem;
 }
 
-.sell_Quantity_container div span{
+.sell_Quantity_container div input:focus {
+    outline: 0;
+}
+
+.sell_Quantity_container div span {
     font-weight: bold;
 }
 
@@ -1035,42 +1104,97 @@ footer{
     margin-top: 25px;
 }
 
-.info_container{
+.info_container {
     width: 1024px;
     padding: 30px 0px 100px;
     margin: 0 auto;
     display: flex;
 }
 
-.info_container_img{
+.info_container_img {
     margin-right: 40px;
     flex-shrink: 0;
     width: 426px;
     height: 426px;
 }
 
-.info_container_img1{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(238, 238, 238);
-    border-image: initial;
-}
-
-.info_container_img2{
+.info_container_img1 {
+    margin: 0 auto;
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
+    border: 1px solid;
+    transition: all 3s ease-in;
 }
 
-.info_container_info{
+.info_container_img2 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.info_container_img2 .animated {
+    transition: all 1s ease-in;
+}
+
+.info_container_img2 img {
+    -webkit-transition: all 2s ease-in;
+    transition: all 500ms ease 0s;
+}
+
+
+.slide {
+    position: absolute;
+    width: 100%;
+    padding: 0 10%;
+    opacity: 1;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    font-size: 250px;
+    font-weight: bold;
+}
+
+#prevBtn,
+#nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: all 3s ease-in;
+}
+
+#prevBtn.disabled,
+#nextBtn.disabled {
+    display: none;
+}
+
+#prevBtn {
+    background-image: url(../img/arrow-left-over.svg);
+}
+
+
+
+#nextBtn {
+    right: 10px;
+    background-image: url(../img/arrow-right-over.svg);
+}
+
+
+
+
+.info_container_info {
     -webkit-box-flex: 1;
     flex-grow: 1;
 }
 
-.info_container_info1{
+.info_container_info1 {
     width: 100%;
     height: 100%;
     display: flex;
@@ -1090,38 +1214,42 @@ footer{
     font: inherit;
 }
 
-.info_container_info2_name{
+.info_container_info2_name {
     padding-bottom: 30px;
     width: 100%;
     border-bottom: 1px solid rgb(238, 238, 238);
 }
 
-.info_container_info2_name2{
+.info_container_info2_name2 {
     font-size: 24px;
     margin-bottom: 25px;
     font-weight: 600;
     line-height: 1.4;
 }
 
-.info_container_info2_name_price{
+.info_container_info2_name_price {
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
     align-items: flex-end;
 }
 
-.info_container_info2_name_price div{
+.info_container_info2_name_price .comma {
     font-size: 40px;
     font-weight: 500;
+    position: relative;
 }
 
-.info_container_info2_name_price div span{
+
+.info_container_info2_name_price span {
+    position: absolute;
     font-size: 28px;
     font-weight: 400;
-    margin-left: 5px;
+    margin-left: 100px;
+    margin-top: -5px;
 }
 
-.info_container_info2_info{
+.info_container_info2_info {
     vertical-align: baseline;
     margin: 0px;
     padding: 0px;
@@ -1132,7 +1260,7 @@ footer{
     font: inherit;
 }
 
-.info_container_info2_info1{
+.info_container_info2_info1 {
     margin-top: 25px;
     margin-bottom: 25px;
     position: relative;
@@ -1141,12 +1269,13 @@ footer{
     color: rgb(153, 153, 153);
 }
 
-.info_container_info2_info2{
+.info_container_info2_info2 {
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
 }
-.info_container_info2_info div button{
+
+.info_container_info2_info div button {
     font-weight: 600;
     margin-top: 20px;
     margin-right: 10px;
@@ -1161,7 +1290,7 @@ footer{
     cursor: pointer;
 }
 
-#info_btn{
+#info_btn {
     color: rgb(255, 255, 255);
     background: rgb(255, 164, 37);
     border-width: 1px;
@@ -1170,7 +1299,7 @@ footer{
     border-image: initial;
 }
 
-#info_btn2{
+#info_btn2 {
     color: rgb(255, 255, 255);
     background: rgb(247, 0, 0);
     border-width: 1px;
@@ -1179,13 +1308,13 @@ footer{
     border-image: initial;
 }
 
-.info_container2{
+.info_container2 {
     margin: 0 auto;
     width: 1024px;
-    
+    background-color: rgb(249, 249, 249);
 }
 
-.info_container2 button{
+.info_container2 button {
     width: 100%;
     height: 40px;
     -webkit-box-align: center;
@@ -1199,14 +1328,16 @@ footer{
     background: rgb(255, 255, 255);
 }
 
-.info_container2 div{
+.info_container2 div {
     width: 100%;
 }
 
-.info_container2 #p{
-    text-align: center;
+.info_container2 #p {
+    font-size: 17px;
     height: 100%;
     white-space: pre-wrap;
     line-height: 1.5;
-    margin: 40px 0px;
+    margin: 40px 10px;
+    display: flex;
+    text-align: left;
 }

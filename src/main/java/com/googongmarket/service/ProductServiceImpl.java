@@ -45,6 +45,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
+	public ImageVO readFile(int bno) {
+		
+		return mapper.readFile(bno);
+	}
+	
+	@Override
 	public List<String> getFile(int bno) {
 		
 		return mapper.getFile(bno);

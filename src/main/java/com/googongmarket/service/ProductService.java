@@ -15,6 +15,8 @@ public interface ProductService {
 	
 	public ProductVO get(int bno);
 	
+	public ImageVO readFile(int bno);
+	
 	public List<String> getFile(int bno);
 	
 	public boolean modify(ProductVO product);

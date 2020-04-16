@@ -29,7 +29,7 @@ public class ProductControllerTests {
 		product.setContent("내용입니담");
 		product.setSeller("지수");
 		product.setCategory("전자제품");
-		product.setPrice(1000);
+		product.setPrice("1,000");
 		product.setAmount(1);
 		
 		
