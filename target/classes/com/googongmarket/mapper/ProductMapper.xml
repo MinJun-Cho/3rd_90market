@@ -16,7 +16,7 @@
 	</insert>
 	
 	<insert id="createFile" parameterType="com.googongmarket.domain.ImageVO">
-		INSERT INTO images(bno, filepath) VALUES(#{bno}, #{filepath})
+		INSERT INTO images(bno, filepath, thumbnail) VALUES(#{bno}, #{filepath}, #{thumbnail})
     </insert>
 	
 	<select id="read" resultType="com.googongmarket.domain.ProductVO">
@@ -24,11 +24,15 @@
 	</select>
 	
 	<select id="readFile" resultType="com.googongmarket.domain.ImageVO">
-		SELECT filepath FROM images WHERE bno = #{bno} ORDER BY regdate LIMIT 1
+		SELECT thumbnail FROM images WHERE bno = #{bno} ORDER BY regdate LIMIT 1
 	</select>
 	
 	<select id="getFile" resultType="java.lang.String">
-		SELECT filepath FROM images WHERE bno = #{bno}
+		SELECT thumbnail FROM images WHERE bno = #{bno}
+	</select>
+	
+	<select id="mainPage" resultType="com.googongmarket.domain.ProductVO">
+		SELECT product.bno, MIN(thumbnail) AS thumbnail, title, price FROM product INNER JOIN images ON product.bno = images.bno WHERE category = #{category} GROUP BY product.bno LIMIT 4
 	</select>
 	
 	<delete id="delete">

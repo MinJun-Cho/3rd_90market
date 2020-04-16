@@ -46,17 +46,18 @@
                 </div>
                 <div class='sell_category_container_ul'>
                     <ul>
-                        <li><button type="button" name="category" value="fashoin">패션잡화</button></li>
-                        <li><button type="button" name="category" value="women">여성의류</button></li>
-                        <li><button type="button" name="category" value="men">남성의류</button></li>
-                        <li><button type="button" name="category" value="appliances">디지털가전</button></li>
-                        <li><button type="button" name="category" value="books">도서/티켓/취미/애완</button></li>
-                        <li><button type="button" name="category" value="young">유아동/출산</button></li>
-                        <li><button type="button" name="category" value="life">생활/문구/가구/식품</button></li>
-                        <li><button type="button" name="category" value="beauti">뷰티/미용</button></li>
-                        <li><button type="button" name="category" value="sport">스포츠/레저</button></li>
-                        <li><button type="button" name="category" value="car">차량/오토바이</button></li>
-                        <li><button type="button" name="category" value="etc">기타</button></li>
+                        <li><input type="button" name="category" value="패션잡화"></li>
+                        <li><input type="button" name="category" value="여성의류"></li>
+                        <li><input type="button" name="category" value="남성의류"></li>
+                        <li><input type="button" name="category" value="디지털가전"></li>
+                        <li><input type="button" name="category" value="도서/티켓/취미/애완"></li>
+                        <li><input type="button" name="category" value="유아동/출산"></li>
+                        <li><input type="button" name="category" value="생활/문구/가구/식품"></li>
+                        <li><input type="button" name="category" value="뷰티/미용"></li>
+                        <li><input type="button" name="category" value="스포츠/레저"></li>
+                        <li><input type="button" name="category" value="차량/오토바이"></li>
+                        <li><input type="button" name="category" value="기타"></li>
+                        <input type="hidden" name="category" onclick="a(e.target.value);">
                     </ul>
                 </div>
                 <div class="cate1">현재 선택한 카테고리:<span></span></div>

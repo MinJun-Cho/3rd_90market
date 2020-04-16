@@ -102,5 +102,18 @@ comma.addEventListener('keyup', function(){
     this.value = insertComma(this.value.replace(/[,]/g, ''))
 });
 
+var inputs = document.querySelectorAll('.sell_category_container_ul ul li input')
 
+console.log(inputs)
 
+    function a (e){
+    for (var i = 0; i < inputs.length; i++) {
+        
+    }
+    e.target.value
+    console.log(e.target.value)
+}
+
+for (var j = 0; j < inputs.length; j++) {
+    var category = inputs[j].addEventListener('click', a);
+}

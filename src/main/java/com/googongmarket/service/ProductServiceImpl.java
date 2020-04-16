@@ -69,4 +69,10 @@ public class ProductServiceImpl implements ProductService {
 		//log.info("remove .... : "+bno);
 		return mapper.delete(bno) == 1;
 	}
+	
+	@Override
+	public List<ProductVO> mainPage(ProductVO product) {
+		
+		return mapper.mainPage(product);
+	}
 }

@@ -1,5 +1,6 @@
 package com.googongmarket.controller;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,11 +8,14 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +47,7 @@ public class ProductController {
 	public String postCreate(MultipartFile[] file, ProductVO product, ImageVO image, Model model, Model model1, HttpServletRequest request) throws UnsupportedEncodingException {
 		
 		product.setSeller("hello");
+		//System.out.println(product.getCategory());
 		product.setCategory("fashion");
 		
 		String title = product.getTitle();
@@ -53,6 +58,10 @@ public class ProductController {
 		content = new String(content.getBytes("8859_1"), "UTF-8");
 		product.setContent(content);
 		
+//		String category = product.getCategory();
+//		category = new String(category.getBytes("8859_1"), "UTF-8");
+//		product.setCategory(category);
+		
 		service.create(product);
 		model.addAttribute(product);
 		
@@ -60,13 +69,32 @@ public class ProductController {
 
 		for(MultipartFile multipartFile : file) {
 			
-			File f = new File(request.getSession().getServletContext().getRealPath("/") + "resources/itemimage/" + multipartFile.getOriginalFilename());
+			UUID uuid = UUID.randomUUID();
+			String rootPath = request.getSession().getServletContext().getRealPath("/");
+			String attachPath = "resources/originimages/";
+			String fileName = multipartFile.getOriginalFilename();
+			
+			int index = fileName.lastIndexOf(".");
+			String fileExt = fileName.substring(index + 1);
+			System.out.println(fileExt);
+			fileName = uuid.toString().replaceAll("-", "") + fileExt;
+			
+			File originF = new File(rootPath + attachPath + fileName);
 			
 			try {
 				
-				multipartFile.transferTo(f);
+				multipartFile.transferTo(originF);
+				
+				boolean falg = makeThumbnail(originF.getAbsolutePath(), fileName, fileExt, request);
+				
+				if(falg) {
+					
+					falg = false;
+				}
+				
 				image.setBno(tmpBno);
-				image.setFilepath("/resources/itemimage/"+ multipartFile.getOriginalFilename());				
+				image.setFilepath("/resources/originimages/"+ fileName);
+				image.setThumbnail("/resources/thumbimages/" + fileName);
 				
 				System.out.println("image!!!!!!!!\n " + image);
 				service.createFile(image);
@@ -79,14 +107,43 @@ public class ProductController {
 				
 			} finally {
 
-				service.readFile(tmpBno);
-				model1.addAttribute("image", image.getFilepath());
-				System.out.println(service.readFile(tmpBno));
+				//service.readFile(tmpBno);
+				//System.out.println(service.readFile(tmpBno));
 			}
 		}
 				
 		return "redirect:/product/read?bno=" + product.getBno();
 	}
+	
+	private boolean makeThumbnail(String filePath, String fileName, String fileExt, HttpServletRequest request) throws Exception {
+		
+		BufferedImage image = ImageIO.read(new File(filePath));
+	      
+	    int width = 424;
+	    int height = 424;
+	      
+	    int originWidth = image.getWidth();
+	    int originHeight = image.getHeight();
+	      
+	    int ow = originWidth;
+	    int oh = (originWidth * height) / width;
+	      
+	    if(oh > originHeight) {
+	    	
+	       ow = (originHeight * width) / height;
+	       oh = originHeight;
+	    }
+	    
+	    BufferedImage cropImg = Scalr.crop(image, (originWidth - ow) / 2, (originHeight - oh) / 2, ow, oh);
+	    BufferedImage destImg = Scalr.resize(cropImg, width, height);
+	    
+	    String rootPath = request.getSession().getServletContext().getRealPath("/") + "resources/thumbimages/";
+	    String thumbName = rootPath + fileName;
+	    File thumbFile = new File(thumbName);
+	    boolean falg = ImageIO.write(destImg, fileExt.toUpperCase(), thumbFile);
+	    
+	    return falg;
+      }
 	
 	@PostMapping("/modify")
 	public String modify(HttpServletRequest req, HttpSession session, HttpServletResponse res, @RequestParam HashMap<String, String> map,
@@ -142,19 +199,13 @@ public class ProductController {
 	@GetMapping("/read")
 	public void read(@RequestParam("bno") int bno, Model model, Model model1, HttpServletRequest request) {      
 	      
-		model.addAttribute("product", service.get(bno));
-		
-		
+		model.addAttribute("product", service.get(bno));	
 		System.out.println("product : " + service.get(bno));
-		
-//		final DefaultResourceLoader defaultResourceLoader = new DefaultResourceLoader();
-//		Resource resource =  defaultResourceLoader.getResource("resources/img");
-//		log.info("resources : " +resource.toString());
-//		System.out.println("여기 : "+ service.getFile(bno));
+	
 		List<String> images = service.getFile(bno);
 		model1.addAttribute("images", images);
 	}
-
+	
 	@PostMapping("/delete")
 	public String delete(@RequestParam("bno") int bno, RedirectAttributes rttr) {
 		

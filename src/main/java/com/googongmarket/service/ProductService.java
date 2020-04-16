@@ -22,4 +22,6 @@ public interface ProductService {
 	public boolean modify(ProductVO product);
 	
 	public boolean delete(int bno);
+	
+	public List<ProductVO> mainPage(ProductVO product);
 }

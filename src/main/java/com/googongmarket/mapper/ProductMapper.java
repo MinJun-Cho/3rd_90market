@@ -22,4 +22,6 @@ public interface ProductMapper {
 	public int delete(int bno);
 	
 	public int modify(ProductVO product);
+	
+	public List<ProductVO> mainPage(ProductVO product);
 }

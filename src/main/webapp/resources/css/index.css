@@ -227,7 +227,7 @@ nav {
 .slide {
     position: absolute;
     width: 100%;
-    padding: 0 10%;
+    padding: 0 1%;
     top: 50%;
     transform: translateY(-50%);
     opacity: 1;

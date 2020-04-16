@@ -23,8 +23,7 @@
                             <div class="info_container_info2_name">
                                 <div class='info_container_info2_name2'>${product.title}</div>
                                 <div class='info_container_info2_name_price'>
-                                    <div class="comma">${product.price}</div>
-                                    <span>원</span>
+                                    <div class="comma">${product.price}원</div>
                                 </div>
                             </div>
                             <div class="info_container_info2_info">
