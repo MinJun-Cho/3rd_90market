@@ -425,14 +425,13 @@ nav {
 }
 
 .fashion .box_container .box div img {
-    width: 210px;
-    height: 210px;
-    margin-left: 12px;
+    width: 240px;
+    height: 215px;
 }
 
 .title {
     font-size: 14px;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     text-align: center;
     white-space: nowrap;
     font-weight: 600;

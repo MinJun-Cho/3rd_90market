@@ -26,31 +26,46 @@ public class CategoryController {
 	}
 
 	@GetMapping("appliances")
-	public String appliances() {
+	public String appliances(ProductVO product, Model model) {
+		
+		product.setCategory("appliances");
+		model.addAttribute("appliances", service.mainPage(product));
 		
 		return "category/appliances";
 	}
 	
 	@GetMapping("beauti")
-	public String beauti() {
+	public String beauti(ProductVO product, Model model) {
+		
+		product.setCategory("beauti");
+		model.addAttribute("beauti", service.mainPage(product));
 		
 		return "category/beauti";
 	}
 	
 	@GetMapping("books")
-	public String books() {
+	public String books(ProductVO product, Model model) {
+		
+		product.setCategory("books");
+		model.addAttribute("books", service.mainPage(product));
 		
 		return "category/books";
 	}
 	
 	@GetMapping("car")
-	public String car() {
+	public String car(ProductVO product, Model model) {
+		
+		product.setCategory("car");
+		model.addAttribute("car", service.mainPage(product));
 		
 		return "category/car";
 	}
 	
 	@GetMapping("etc")
-	public String etc() {
+	public String etc(ProductVO product, Model model) {
+		
+		product.setCategory("etc");
+		model.addAttribute("etc", service.mainPage(product));
 		
 		return "category/etc";
 	}
@@ -60,37 +75,51 @@ public class CategoryController {
 		
 		product.setCategory("fashion");
 		model.addAttribute("fashion", service.mainPage(product));
-		System.out.println(service.mainPage(product));
 		
 		return "category/fashion";
 	}
 	
 	@GetMapping("life")
-	public String life() {
+	public String life(ProductVO product, Model model) {
+		
+		product.setCategory("life");
+		model.addAttribute("life", service.mainPage(product));
 		
 		return "category/life";
 	}
 	
 	@GetMapping("men")
-	public String men() {
+	public String men(ProductVO product, Model model) {
+		
+		product.setCategory("men");
+		model.addAttribute("men", service.mainPage(product));
 		
 		return "category/men";
 	}
 	
 	@GetMapping("sport")
-	public String sport() {
+	public String sport(ProductVO product, Model model) {
+		
+		product.setCategory("sport");
+		model.addAttribute("sport", service.mainPage(product));
 		
 		return "category/sport";
 	}
 	
 	@GetMapping("women")
-	public String women() {
+	public String women(ProductVO product, Model model) {
+		
+		product.setCategory("women");
+		model.addAttribute("women", service.mainPage(product));
 		
 		return "category/women";
 	}
 	
 	@GetMapping("young")
-	public String young() {
+	public String young(ProductVO product, Model model) {
+		
+		product.setCategory("young");
+		model.addAttribute("young", service.mainPage(product));
 		
 		return "category/young";
 	}

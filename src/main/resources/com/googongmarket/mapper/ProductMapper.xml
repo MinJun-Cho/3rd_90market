@@ -16,7 +16,7 @@
 	</insert>
 	
 	<insert id="createFile" parameterType="com.googongmarket.domain.ImageVO">
-		INSERT INTO images(bno, filepath, thumbnail) VALUES(#{bno}, #{filepath}, #{thumbnail})
+		INSERT INTO images(bno, filepath, thumbnail, number) VALUES(#{bno}, #{filepath}, #{thumbnail}, #{number})
     </insert>
 	
 	<select id="read" resultType="com.googongmarket.domain.ProductVO">
@@ -32,7 +32,11 @@
 	</select>
 	
 	<select id="mainPage" resultType="com.googongmarket.domain.ProductVO">
-		SELECT product.bno, MIN(thumbnail) AS thumbnail, title, price FROM product INNER JOIN images ON product.bno = images.bno WHERE category = #{category} GROUP BY product.bno LIMIT 4
+		SELECT product.bno, MIN(thumbnail) AS thumbnail, title, price
+			FROM product INNER JOIN images ON product.bno = images.bno
+				WHERE category = #{category} AND number = 1
+					GROUP BY product.bno
+						ORDER BY product.bno DESC LIMIT 4
 	</select>
 	
 	<delete id="delete">
@@ -50,4 +54,10 @@
 		filepath = #{filepath}
 		WHERE bno = #{bno}		
 	</update>
+	
+	<select id="search" resultType="com.googongmarket.domain.ProductVO">
+		SELECT product.bno, MIN(thumbnail) AS thumbnail, title, price
+			FROM product INNER JOIN images ON product.bno = images.bno
+				WHERE title like CONCAT('%',#{keyword},'%') AND number = 1 GROUP BY product.bno LIMIT 4
+	</select>
 </mapper>

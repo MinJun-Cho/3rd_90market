@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductVO get(int bno) {
+	public ProductVO read(int bno) {
 		
 		//log.info("get ...."+bno);
 		return mapper.read(bno);
@@ -74,5 +74,11 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> mainPage(ProductVO product) {
 		
 		return mapper.mainPage(product);
+	}
+	
+	@Override
+	public List<ProductVO> search(String title) {
+		
+		return mapper.search(title);
 	}
 }

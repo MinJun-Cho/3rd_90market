@@ -7,7 +7,7 @@
     <section>
         <div class="div_container">
             <ul class="slider_container simple-list" id="slider">
-                <li class="slide"><img src="https://media.bunjang.co.kr/images/nocrop/447451593.jpg" /></li>
+                <li class="slide">조민준</li>
                 <li class="slide">주태종</li>
                 <li class="slide">정지수</li>
             </ul>
@@ -78,42 +78,19 @@
                     <a href="/category/women">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="women" items="${women}">
+                    <a href="/product/read?bno=${women.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${women.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${women.title}</div>
+                                <div class="price">${women.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//여성의류-->
@@ -123,42 +100,19 @@
                     <a href="/category/men">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="men" items="${men}">
+                    <a href="/product/read?bno=${men.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${men.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${men.title}</div>
+                                <div class="price">${men.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//남성의류-->
@@ -168,42 +122,19 @@
                     <a href="/category/appliances">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="appliances" items="${appliances}">
+                    <a href="/product/read?bno=${appliances.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${appliances.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${appliances.title}</div>
+                                <div class="price">${appliances.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//디지털/가전-->
@@ -213,42 +144,19 @@
                     <a href="/category/books">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="books" items="${books}">
+                    <a href="/product/read?bno=${books.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${books.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${books.title}</div>
+                                <div class="price">${books.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//도서/티켓/취미/애완-->
@@ -258,42 +166,19 @@
                     <a href="/category/young">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="young" items="${young}">
+                    <a href="/product/read?bno=${young.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${young.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${young.title}</div>
+                                <div class="price">${young.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//유아동/출산-->
@@ -303,42 +188,19 @@
                     <a href="/category/life">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="life" items="${life}">
+                    <a href="/product/read?bno=${life.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${life.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${life.title}</div>
+                                <div class="price">${life.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//생활/문구/가구/식품-->
@@ -348,42 +210,19 @@
                     <a href="/category/beauti">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="beauti" items="${beauti}">
+                    <a href="/product/read?bno=${beauti.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${beauti.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${beauti.title}</div>
+                                <div class="price">${beauti.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//뷰티/미용-->
@@ -393,42 +232,19 @@
                     <a href="/category/sport">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="sport" items="${sport}">
+                    <a href="/product/read?bno=${sport.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${sport.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${sport.title}</div>
+                                <div class="price">${sport.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//스포츠/레저-->
@@ -438,42 +254,19 @@
                     <a href="/category/car">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="car" items="${car}">
+                    <a href="/product/read?bno=${car.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${car.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${car.title}</div>
+                                <div class="price">${car.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//차량/오토바이-->
@@ -483,42 +276,19 @@
                     <a href="/category/etc">전체보기</a>
                 </div>
                 <div class="box_container">
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
+                    <c:forEach var="etc" items="${etc}">
+                    <a href="/product/read?bno=${etc.bno}">
+                        <div class="box">
+                            <div>
+                                <img src="${etc.thumbnail}" alt="제품사진 이미지">
+                            </div>
+                            <div class="box2">
+                                <div class="title">${etc.title}</div>
+                                <div class="price">${etc.price}<SPAN>원</SPAN></div>
+                            </div>
                         </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <img src="/resources/img/logo.png" alt="제품사진 이미지">
-                        </div>
-                        <div class="box2">
-                            <div class="title">제품 제목</div>
-                            <div class="price">"가격"<SPAN>원</SPAN></div>
-                        </div>
-                    </div>
+                    </a>
+                    </c:forEach>
                 </div>
             </div>
             <!--//기타-->

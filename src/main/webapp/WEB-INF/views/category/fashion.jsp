@@ -7,6 +7,7 @@
             <div class="name">패션잡화</div>
             <div class="box_container">
             	<c:forEach var="fashion" items="${fashion}">
+            	<a href="/product/read?bno=${fashion.bno}">
                 <div class="box">
                     <div>
                         <img src="${fashion.thumbnail}" alt="제품사진 이미지">
@@ -16,6 +17,7 @@
                         <div class="price">${fashion.price}<SPAN>원</SPAN></div>
                     </div>
                 </div>
+                </a>
                 </c:forEach>
             </div>
             <div class="page">

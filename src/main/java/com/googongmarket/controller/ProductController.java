@@ -56,6 +56,7 @@ public class ProductController {
 		
 		String content = product.getContent();
 		content = new String(content.getBytes("8859_1"), "UTF-8");
+		content = content.replaceAll("\r\n", "<br>");
 		product.setContent(content);
 		
 //		String category = product.getCategory();
@@ -69,6 +70,7 @@ public class ProductController {
 
 		for(MultipartFile multipartFile : file) {
 			
+			int number = 1;
 			UUID uuid = UUID.randomUUID();
 			String rootPath = request.getSession().getServletContext().getRealPath("/");
 			String attachPath = "resources/originimages/";
@@ -92,12 +94,15 @@ public class ProductController {
 					falg = false;
 				}
 				
+				image.setNumber(number);
 				image.setBno(tmpBno);
 				image.setFilepath("/resources/originimages/"+ fileName);
 				image.setThumbnail("/resources/thumbimages/" + fileName);
 				
 				System.out.println("image!!!!!!!!\n " + image);
 				service.createFile(image);
+				
+				number++;
 				
 				//model.addAttribute("image", multipartFile.getOriginalFilename());					
 				
@@ -197,13 +202,18 @@ public class ProductController {
 	}
 
 	@GetMapping("/read")
-	public void read(@RequestParam("bno") int bno, Model model, Model model1, HttpServletRequest request) {      
-	      
-		model.addAttribute("product", service.get(bno));	
-		System.out.println("product : " + service.get(bno));
+	public void read(@RequestParam("bno") int bno, Model model, ProductVO product, HttpServletRequest request) {      
+	    
+		String content = service.read(bno).getContent();
+		System.out.println(content);
+		content = content.replaceAll("<br>", "\r\n");
+		product.setContent(content);
+		
+		model.addAttribute("product", service.read(bno));
+		System.out.println("product : " + service.read(bno));
 	
 		List<String> images = service.getFile(bno);
-		model1.addAttribute("images", images);
+		model.addAttribute("images", images);
 	}
 	
 	@PostMapping("/delete")

@@ -17,12 +17,42 @@ public class HomeController {
 	private ProductService service;
 
 	@GetMapping("/")
-	public String home(ProductVO product, Model model) {
+	public String home(ProductVO product, Model appliances, Model beauti, Model books, Model car, Model etc, Model fashion,
+						Model life, Model men, Model sport, Model women, Model young) {
 		
+		product.setCategory("appliances");
+		fashion.addAttribute("appliances", service.mainPage(product));
+		
+		product.setCategory("beauti");
+		fashion.addAttribute("beauti", service.mainPage(product));
+		
+		product.setCategory("books");
+		fashion.addAttribute("books", service.mainPage(product));
+		
+		product.setCategory("car");
+		fashion.addAttribute("car", service.mainPage(product));
+		
+		product.setCategory("etc");
+		fashion.addAttribute("etc", service.mainPage(product));
 		
 		product.setCategory("fashion");
-		model.addAttribute("fashion", service.mainPage(product));
+		fashion.addAttribute("fashion", service.mainPage(product));
 		System.out.println(service.mainPage(product));
+		
+		product.setCategory("life");
+		fashion.addAttribute("life", service.mainPage(product));
+		
+		product.setCategory("men");
+		fashion.addAttribute("men", service.mainPage(product));
+		
+		product.setCategory("sport");
+		fashion.addAttribute("sport", service.mainPage(product));
+		
+		product.setCategory("women");
+		women.addAttribute("women", service.mainPage(product));
+		
+		product.setCategory("young");
+		fashion.addAttribute("young", service.mainPage(product));
 		
 		return "home";
 	}

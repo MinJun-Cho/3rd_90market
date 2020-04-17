@@ -24,4 +24,6 @@ public interface ProductMapper {
 	public int modify(ProductVO product);
 	
 	public List<ProductVO> mainPage(ProductVO product);
+	
+	public List<ProductVO> search(String title);
 }

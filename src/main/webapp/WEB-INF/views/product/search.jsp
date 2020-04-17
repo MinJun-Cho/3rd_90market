@@ -4,19 +4,19 @@
 
     <section class="main">
         <div class="fashion">
-            <div class="name">뷰티/미용</div>
+            <div class="name">검색 결과</div>
             <div class="box_container">
-                <c:forEach var="beauti" items="${beauti}">
-                <a href="/product/read?bno=${beauti.bno}">
+                <c:forEach var="search" items="${search}">
+                <a href="/product/read?bno=${search.bno}">
                 <div class="box">
                     <div>
-                        <img src="${beauti.thumbnail}" alt="제품사진 이미지">
+                        <img src="${search.thumbnail}" alt="제품사진 이미지">
                     </div>
                     <div class="box2">
-                        <div class="title">${beauti.title}</div>
-                        <div class="price">${beauti.price}<SPAN>원</SPAN></div>
+                        <div class="title">${search.title}</div>
+                        <div class="price">${search.price}<SPAN>원</SPAN></div>
                     </div>
-                </div>
+               	</div>
                 </a>
                 </c:forEach>
             </div>

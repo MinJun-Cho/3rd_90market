@@ -13,7 +13,7 @@ public interface ProductService {
 	
 	public void createFile(ImageVO image);
 	
-	public ProductVO get(int bno);
+	public ProductVO read(int bno);
 	
 	public ImageVO readFile(int bno);
 	
@@ -24,4 +24,6 @@ public interface ProductService {
 	public boolean delete(int bno);
 	
 	public List<ProductVO> mainPage(ProductVO product);
+	
+	public List<ProductVO> search(String title);
 }
