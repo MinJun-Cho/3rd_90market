@@ -10,7 +10,7 @@
                     <div class="info_container_img1">
                         <div class="info_container_img2">
                         	<c:forEach var="image" items="${images}">
-                            <img class="slide" src="<c:out value="${image}" />" />
+                            <li class="slide1"><img src="<c:out value="${image}" />" /></li>
                             </c:forEach>
                         </div>
                         <a id="prevBtn"></a>
@@ -28,9 +28,13 @@
                             </div>
                             <div class="info_container_info2_info">
                                 <div class='info_container_info2_info1'>상품상태</div>
+                                <span>중고상품</span>
                                 <div class='info_container_info2_info1'>교환여부</div>
+                                <span>교환가능</span>
                                 <div class='info_container_info2_info1'>배송비</div>
-                                <div class='info_container_info2_info1'>거래지역</div>
+                                <span>배송비 별도</span>
+                                <div class='info_container_info2_info1'>판매자></div>
+                                <span>jj6267@naver.com</span>
                                 <div class='info_container_info2_info2'>
                                     <button id='info_btn'>연락하기</button>
                                     <button id='info_btn2'>바로구매</button>

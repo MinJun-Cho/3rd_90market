@@ -1,6 +1,6 @@
 let sliderWrapper = document.querySelector(".info_container_img1");
 let sliderContainer = document.querySelector(".info_container_img2");
-let slides = document.querySelectorAll(".info_container_img2 img");
+let slides = document.querySelectorAll(".info_container_img2 .slide1");
 let slideCount = slides.length;
 let currentIndex = 0;
 let topHeight = 0;
@@ -61,6 +61,4 @@ function numberWithCommas(x){
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
     
-
-
 comma1.innerText = numberWithCommas(comma1.innerText)

@@ -53,22 +53,22 @@
             <div>
             <form:form action="/member/postModify" method="post" modelAttribute="modifyMember">
                 <div>이메일</div>
-                <form:input type="text" path="email" id ="userId" readonly="true"/>
+                <form:input type="text" path="email" id ="userId" readonly="true"/><br>
                 <form:errors path="email" style="color:red" />
                 <div>패스워드</div>
-                <form:password showPassword="true" path="passwd" id ="password" placeholder = "4~12자리" />
+                <form:password showPassword="true" path="passwd" id ="password" placeholder = "4~12자리" /><br>
                 <form:errors path="passwd" style="color:red" />
                 <div>패스워드 확인</div>
-                <form:password showPassword="true" path="passwd2" id ="userconfirm" placeholder = "비밀번호 확인" />
+                <form:password showPassword="true" path="passwd2" id ="userconfirm" placeholder = "비밀번호 확인" /><br>
                 <form:errors path="passwd2" style="color:red" />
                 <div>성명</div>
-                <form:input type="text" path="username" readonly="true" id ="name" placeholder="이름을 적어주세요" />
+                <form:input type="text" path="username" readonly="true" id ="name" placeholder="이름을 적어주세요" /><br>
                 <form:errors path="username" style="color:red" />
                 <div>닉네임</div>
-                <form:input type="text" path="nickname" id ="nickname" placeholder="한글/영문/숫자만!" />
+                <form:input type="text" path="nickname" id ="nickname" placeholder="한글/영문/숫자만!" /><br>
                 <form:errors path="nickname" style="color:red" />
                 <div>휴대폰 번호</div>
-                <form:input type="text" path="phone" id ="hp" placeholder="010-xxxx-xxxx" />
+                <form:input type="text" path="phone" id ="hp" placeholder="010-xxxx-xxxx" /><br>
                 <form:errors path="phone" style="color:red" />
             </div>
             <div>

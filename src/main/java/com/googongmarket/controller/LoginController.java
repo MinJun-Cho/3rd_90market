@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.googongmarket.domain.MemberVO;
-import com.googongmarket.domain.NaverLoginBO;
+import com.googongmarket.service.AuthNaverService;
 import com.googongmarket.service.MemberService;
 import com.googongmarket.validator.MemberValidator;
 
@@ -32,7 +32,7 @@ public class LoginController {
 	private MemberService service;
 	
 	@Setter(onMethod_ = {@Autowired})
-	private NaverLoginBO naverLoginBO;
+	private AuthNaverService naverService;
 	
 	@Resource(name = "loginMember")
 	@Lazy
@@ -42,7 +42,7 @@ public class LoginController {
 	public String login(@ModelAttribute("tempLoginMember") MemberVO tempLoginMember,
 						@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model, HttpSession session) {
 		
-		String naverAuthUrl = naverLoginBO.getAuthorizeationUrl(session);
+		String naverAuthUrl = naverService.getAuthorizeationUrl(session);
 		
 		model.addAttribute("fail", fail);
 		

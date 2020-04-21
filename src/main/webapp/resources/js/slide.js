@@ -1,3 +1,40 @@
+var btt = document.getElementById('back-to-top')
+var docElem = document.documentElement
+var offset  
+var scrollPos 
+var docHeight
+
+docHeight = Math.max(docElem.scrollHeight, docElem.offsetHeight);
+
+if(docHeight != 0){
+    offset = docHeight / 4;
+}
+
+window.addEventListener('scroll', function(){
+    scrollPos = docElem.scrollTop;
+    
+    if(scrollPos > offset){
+        btt.className = 'visible';
+    }else{
+        btt.className = '';
+    }
+})
+
+btt.addEventListener('click', function(ev){
+    ev.preventDefault();
+    scrollToTop();
+});
+
+function scrollToTop(){
+    var scrollInterval = setInterval(function(){
+        if(scrollPos != 0){
+            window.scrollBy(0,-55);
+        }else{
+            clearInterval(scrollInterval);
+        }
+    }, 5);
+}
+
 let sliderWrapper = document.querySelector(".div_container");
 let sliderContainer = document.querySelector(".slider_container");
 let slides = document.querySelectorAll(".slide");

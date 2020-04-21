@@ -42,6 +42,9 @@ public class MemberServiceImpl implements MemberService {
 		String hashPasswd = BCrypt.hashpw(memberVO.getPasswd(), BCrypt.gensalt());
 		memberVO.setPasswd(hashPasswd);
 		
+		System.out.println(memberVO.getUsername());
+		System.out.println(memberVO.getNickname());
+		
 		mapper.joinMember(memberVO);
 		
 	}
@@ -89,6 +92,9 @@ public class MemberServiceImpl implements MemberService {
 		
 		String hashPasswd = BCrypt.hashpw(modifyMember.getPasswd(), BCrypt.gensalt());
 		modifyMember.setPasswd(hashPasswd);
+		
+		System.out.println(modifyMember.getUsername());
+		System.out.println(modifyMember.getNickname());
 		
 		mapper.modifyMemberInfo(modifyMember);
 		

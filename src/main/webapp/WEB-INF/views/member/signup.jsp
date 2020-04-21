@@ -10,39 +10,31 @@
     <script src="https://kit.fontawesome.com/7b5ecf7db0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/resources/img/logo2.png" />
-    <link rel="stylesheet" href="/resources/css/login.css?ver=0.1" />
+    <link rel="stylesheet" href="/resources/css/login.css?ver=0.2" />
 </head>
 <script>
 	function emailCheck() {
-
 		var email = $("#userId").val()
-
 		if (email.length == 0) {
-
 			alert("이메일을 입력해주세요.")
 			return
 		}
-
 		$.ajax({
 			url: "/user/emailCheck/" + email,
 			type: "get",
 			dataType: "text",
 			success: function (result) {
 				if (result.trim() == "true") {
-
 					alert("사용할 수 있는 이메일 입니다.")
 					$("#emailExist").val("true")
 				} else {
-
 					alert("이미 가입된 이메일 입니다.\n다른 메일 주소를 입력해주세요.")
 					$("#emailExist").val("false")
 				}
 			}
 		})
 	}
-
 	function resetEmailExist() {
-
 		$("#emailExist").val("false")
 	}
 </script>

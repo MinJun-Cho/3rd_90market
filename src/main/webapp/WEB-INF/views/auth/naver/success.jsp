@@ -27,20 +27,20 @@ h3 {
 
 </head>
 <body>
-  <div
+  <!-- <div
     style="background-color: #15a181; width: 100%; height: 50px; text-align: center; color: white;">
     <h3>Naver_Login Success</h3>
-  </div>
+  </div> -->
   <br>
   <h2 style="text-align: center" id="name"></h2>
   <h4 style="text-align: center" id="email"></h4>
   <script>
     $(function () {
       $("body").hide();
-      $("body").fadeIn(5000);  // 5초 뒤에 사라 지자 
+      $("body").fadeIn(3000);  // 5초 뒤에 사라 지자 
      
       setTimeout(function(){$("body").fadeOut(1000);}, 1000);
-      setTimeout(function(){location.href= "${pageContext.request.contextPath}/"}, 7000);
+      setTimeout(function(){location.href= "${pageContext.request.contextPath}/"}, 4000);
 		// 7초 뒤에 메인 화면 으로 가자  
     
     })

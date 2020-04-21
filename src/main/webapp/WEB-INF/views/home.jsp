@@ -7,9 +7,9 @@
     <section>
         <div class="div_container">
             <ul class="slider_container simple-list" id="slider">
-                <li class="slide">조민준</li>
-                <li class="slide">주태종</li>
-                <li class="slide">정지수</li>
+                <li class="slide"><img src="https://media.bunjang.co.kr/images/nocrop/447451593.jpg" title="편의점 택배이벤트_4월" class="sc-hAXbOi ePlLhy"></li>
+                <li class="slide"><img src="https://media.bunjang.co.kr/images/nocrop/431881862.jpg" title="번개장터 X 포인핸드 X CU택배 유기동물 이벤트" class="sc-hAXbOi ePlLhy"></li>
+                <li class="slide"><img src="https://media.bunjang.co.kr/images/nocrop/453198523.jpg" title="번개페이 소개 페이지" class="sc-hAXbOi ePlLhy"></li>
             </ul>
 
             <a href="#" id="prev"></a>

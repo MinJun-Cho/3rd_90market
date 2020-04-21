@@ -1,4 +1,4 @@
-package com.googongmarket.domain;
+package com.googongmarket.service;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -18,14 +18,14 @@ import com.github.scribejava.core.oauth.OAuth20Service;
 import com.googongmarket.controller.NaverLoginApi;
 
 @Service
-public class NaverLoginBO {
+public class AuthNaverService {
 
 	private final static String CLIENT_ID = "o9Bi08X6goP_t_GRwLOL";
 	private final static String CLIENT_SECRET = "FB3VKGtf1S";
 	private final static String REDIRECT_URI = "http://localhost:8080/auth/naver/callback";
 	private final static String SESSION_STATE = "oauth_state";
 	private final static String PROFILE_API_URL = "https://openapi.naver.com/v1/nid/me";
-	
+		
 	public String getAuthorizeationUrl(HttpSession session) {
 		
 		String state = generateRandomString();

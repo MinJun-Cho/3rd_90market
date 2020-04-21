@@ -25,7 +25,7 @@
     <!--script-->
 
     <script src="/resources/js/menu.js"></script>
-    <script src="/resources/js/slide.js"></script>
+    <script src="/resources/js/slide.js?ver=0.1"></script>
     <script src="/resources/js/tap.js"></script>
 </body>
 </html>

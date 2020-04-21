@@ -33,14 +33,14 @@ body {
     transition: all .3s ease-in-out;
     display: inline-block;
     text-decoration: none;
-    opacity: 0.1;
+    opacity: 0;
 }
 
 button:focus {
     outline: 0;
 }
 
-input{
+input {
     appearance: none;
     -webkit-appearance: none;
 }
@@ -124,6 +124,7 @@ nav {
     width: 385px;
     height: 20px;
     margin-left: 10px;
+    margin-top: 8px;
 }
 
 .logo_container h2 input:focus {
@@ -201,41 +202,31 @@ nav {
 .div_container {
     margin: 0 auto;
     width: 1024px;
+    height: 300px;
     position: relative;
     overflow: hidden;
-    border: 1px solid;
-    border-top: none;
-    transition: all 3s ease-in;
 }
 
 .slider_container {
     position: absolute;
-    height: 300px;
     width: 100%;
+    transition: all 500ms ease 0s;
 }
 
 .slider_container .animated {
     transition: all 1s ease-in;
 }
 
-.slider_container li {
-    -webkit-transition: all 2s ease-in;
-    transition: all 500ms ease 0s;
-}
-
-
-.slide {
+.slider_container .slide {
     position: absolute;
     width: 100%;
-    padding: 0 1%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 1;
     box-sizing: border-box;
     overflow: hidden;
-    text-align: center;
-    font-size: 250px;
-    font-weight: bold;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
 }
 
 #prev,
@@ -250,7 +241,8 @@ nav {
     border-radius: 50%;
     background-position: center center;
     background-repeat: no-repeat;
-    transition: all 3s ease-in;
+    transition: all 1s ease-in;
+    opacity: 0.3;
 }
 
 #prev.disabled,
@@ -362,6 +354,7 @@ nav {
     border-color: rgb(245, 245, 245);
     border-image: initial;
     background: rgb(255, 255, 255);
+    font-size: 14px;
 }
 
 
@@ -426,12 +419,12 @@ nav {
 
 .fashion .box_container .box div img {
     width: 240px;
-    height: 215px;
+    height: 210px;
 }
 
 .title {
     font-size: 14px;
-    padding-bottom: 18px;
+    padding-bottom: 20px;
     text-align: center;
     white-space: nowrap;
     font-weight: 600;
@@ -840,7 +833,7 @@ footer {
     align-items: center;
 }
 
-.sell_category_container .sell_category_container_ul ul li input{
+.sell_category_container .sell_category_container_ul ul li input {
     width: 100%;
     height: 100%;
     padding: 0px 1.5rem;
@@ -1112,47 +1105,37 @@ footer {
 
 .info_container_img {
     margin-right: 40px;
-    flex-shrink: 0;
     width: 426px;
     height: 426px;
+    border: 1px solid;
+    
 }
 
 .info_container_img1 {
-    margin: 0 auto;
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
-    border: 1px solid;
-    transition: all 3s ease-in;
+    transition: all 1s ease-in;
 }
 
 .info_container_img2 {
     position: absolute;
-    height: 100%;
     width: 100%;
-}
-
-.info_container_img2 .animated {
     transition: all 1s ease-in;
 }
 
-.info_container_img2 img {
-    -webkit-transition: all 2s ease-in;
-    transition: all 500ms ease 0s;
-}
 
-
-.slide {
+.info_container_img2 .slide1 {
     position: absolute;
     width: 100%;
-    padding: 0 10%;
-    opacity: 1;
     box-sizing: border-box;
     overflow: hidden;
-    text-align: center;
-    font-size: 250px;
-    font-weight: bold;
+    
+}
+
+.slide1 img{
+    width: 100%;
 }
 
 #prevBtn,
@@ -1244,8 +1227,7 @@ footer {
     position: absolute;
     font-size: 28px;
     font-weight: 400;
-    margin-left: 100px;
-    margin-top: -5px;
+    margin-left: 5px;
 }
 
 .info_container_info2_info {
@@ -1266,7 +1248,18 @@ footer {
     width: 90px;
     padding-left: 15px;
     color: rgb(153, 153, 153);
+    display: flex;
 }
+
+.info_container_info2_info span {
+    position: absolute;
+    margin-top: -43px;
+    margin-left: 95px;
+    color: black;
+    font-weight: bold;
+}
+
+
 
 .info_container_info2_info2 {
     display: flex;

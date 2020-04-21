@@ -12,7 +12,7 @@ public class MemberVO {
 	private int id;
 	
 	@Email
-	@Size(min = 5, max = 20)
+	@Size(max = 30)
 	private String email;
 	
 	private boolean emailExist;
@@ -40,4 +40,7 @@ public class MemberVO {
 	
 	@Pattern(regexp = "[0-9]{3}-[0-9]{3,4}-[0-9]{4}")
 	private String phone;
+	
+	private String valid;
+	private String social_type;
 }

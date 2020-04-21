@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.googongmarket.domain.MemberVO;
-import com.googongmarket.domain.NaverLoginBO;
 import com.googongmarket.mapper.AuthMapper;
+import com.googongmarket.service.AuthNaverService;
 import com.googongmarket.service.MemberService;
 
 import lombok.Setter;
@@ -35,23 +35,26 @@ public class AuthController {
 	
 	@Setter(onMethod_ = {@Autowired})
 	private AuthMapper mapper;
-	private NaverLoginBO naverLoginBO;
+	
+	@Setter(onMethod_ = {@Autowired})
+	private AuthNaverService naverService;
+	
 	private String naverProfile = null;
 	
 	@Resource(name = "loginMember")
 	@Lazy
 	private MemberVO loginMember;
 
-	@Autowired
-	private void setNaverLoginBO(NaverLoginBO naverLoginBO) {
-		
-		this.naverLoginBO = naverLoginBO;
-	}
+//	@Autowired
+//	private void setAuthNaverService(AuthNaverService naverService) {
+//		
+//		this.naverService = naverService;
+//	}
 	
 	@GetMapping("/auth/naver/login")
 	public String naverLogin(Model model, HttpSession session) {
 		
-		String naverAuthUrl = naverLoginBO.getAuthorizeationUrl(session);
+		String naverAuthUrl = naverService.getAuthorizeationUrl(session);
 		
 		//System.out.println("네이버 : " + naverAuthUrl);
 		
@@ -67,10 +70,10 @@ public class AuthController {
 		//System.out.println("여기는 callback");
 		
 		OAuth2AccessToken oauthToken;
-		oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		oauthToken = naverService.getAccessToken(session, code, state);
 		//System.out.println("\noauthToken : " + oauthToken + "\n");
 		
-		naverProfile = naverLoginBO.getUserProfile(oauthToken);
+		naverProfile = naverService.getUserProfile(oauthToken);
 		
 		//System.out.println(naverLoginBO.getUserProfile(oauthToken).toString());
 		
@@ -81,9 +84,10 @@ public class AuthController {
 		//System.out.println("response : " + response);
 		
 		memberVO.setEmail((String) response.get("email"));
+		memberVO.setPasswd("NAVER");
 		memberVO.setUsername((String) response.get("name"));
 		memberVO.setNickname((String) response.get("nickname"));
-		memberVO.setPasswd("NAVER");
+		memberVO.setSocial_type("naver");
 		
 		//System.out.println(service.emailCheck((String) response.get("email")));
 		
@@ -108,6 +112,9 @@ public class AuthController {
 		}
 		
 		model.addAttribute("result", naverProfile);
+		//System.out.println(memberVO.getUsername());
+		session.setAttribute("username", memberVO.getUsername());
+		
 		//System.out.println("\nresult : " + naverProfile + "\n");
 		
 		return "auth/naver/success";

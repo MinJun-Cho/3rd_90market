@@ -37,7 +37,7 @@ public class HomeController {
 		
 		product.setCategory("fashion");
 		fashion.addAttribute("fashion", service.mainPage(product));
-		System.out.println(service.mainPage(product));
+		//System.out.println(service.mainPage(product));
 		
 		product.setCategory("life");
 		fashion.addAttribute("life", service.mainPage(product));
