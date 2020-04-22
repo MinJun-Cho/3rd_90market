@@ -4,7 +4,7 @@ import com.googongmarket.domain.MemberVO;
 
 public interface AuthMapper {
 
-	public int idCheck(String email);
+	public String idCheck(String email);
 	
 	public void joinAuthMember(MemberVO memberVO);
 	

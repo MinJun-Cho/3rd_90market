@@ -1,4 +1,4 @@
-package com.googongmarket.controller;
+package com.googongmarket.util;
 
 import com.github.scribejava.core.builder.api.DefaultApi20;
 

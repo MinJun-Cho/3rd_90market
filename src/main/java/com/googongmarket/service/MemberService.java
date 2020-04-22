@@ -1,12 +1,20 @@
 package com.googongmarket.service;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
+
 import com.googongmarket.domain.MemberVO;
 
 public interface MemberService {
 
 	public boolean emailCheck(String email);
 	
-	public void joinMember(MemberVO memberVO);
+//	public void updateAuthKey(MemberVO memberVO);
+	
+	public void memberValid(MemberVO memberVO);
+	
+	public void joinMember(MemberVO memberVO) throws MessagingException, UnsupportedEncodingException;
 	
 	public void getLoginMemberInfo(MemberVO tempLoginMember);
 	

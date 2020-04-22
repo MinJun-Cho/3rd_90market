@@ -25,14 +25,14 @@
 	                <div>
 	                	<form:input type="text" path="email" placeholder="가입하셨던 이메일을 입력하세요" /><br>
 	                    <div class="error">
-	                    <form:errors path="email" style="color:red" />
+	                    <form:errors path="email" style="color:red; display: inline-block; margin-left:110px; margin-top:10px" />
 	                    </div>
 	                </div>
 	                <div class="name">Password</div>
 	                <div>
 	                    <form:password showPassword="true" path="passwd" placeholder="비밀번호를 입력하세요" /><br>
 	                    <div class="error">
-	                    <form:errors path="passwd" style="color:red" />
+	                    <form:errors path="passwd" style="color:red; display: inline-block; margin-left:110px; margin-top:10px" />
 	                    </div>
 	                </div>
 	            </div>

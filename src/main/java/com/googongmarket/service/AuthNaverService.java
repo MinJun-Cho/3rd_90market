@@ -15,7 +15,7 @@ import com.github.scribejava.core.model.OAuthRequest;
 import com.github.scribejava.core.model.Response;
 import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth20Service;
-import com.googongmarket.controller.NaverLoginApi;
+import com.googongmarket.util.NaverLoginApi;
 
 @Service
 public class AuthNaverService {

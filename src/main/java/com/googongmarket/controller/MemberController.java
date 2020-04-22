@@ -3,7 +3,7 @@ package com.googongmarket.controller;
 import java.io.UnsupportedEncodingException;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.googongmarket.domain.MemberVO;
 import com.googongmarket.service.MemberService;
@@ -35,36 +36,15 @@ public class MemberController {
 	private MemberVO loginMember;
 	
 	@GetMapping("signup")
-	public String join(@ModelAttribute("memberVO") MemberVO memberVO, HttpSession session) throws UnsupportedEncodingException {
-		
-		String username = (String) session.getAttribute("username");
-		System.out.println("username : " + username);
-		memberVO.setUsername(username);
-		
-		System.out.println("get signup username : " + memberVO.getUsername());
-		System.out.println("get signup nickname : " + memberVO.getNickname());
+	public String join(@ModelAttribute("memberVO") MemberVO memberVO) throws UnsupportedEncodingException {
 		
 		return "member/signup";
 	}
 	
 	@PostMapping("postSignup")
-	public String postJoin(@Valid @ModelAttribute("memberVO") MemberVO memberVO, BindingResult result, HttpSession session) throws UnsupportedEncodingException {
-		
-//		String username = memberVO.getUsername();
-//		username = new String(username.getBytes("8859_1"), "UTF-8");
-//		memberVO.setUsername(username);
-//		session.setAttribute("username", memberVO.getUsername());
-//		
-//		String nickname = memberVO.getNickname();
-//		nickname = new String(nickname.getBytes("8859_1"), "UTF-8");
-//		memberVO.setNickname(nickname);
-		
-		System.out.println("post signup username : " + memberVO.getUsername());
-		System.out.println("post signup nickname : " + memberVO.getNickname());
+	public String postJoin(@Valid @ModelAttribute("memberVO") MemberVO memberVO, BindingResult result) throws UnsupportedEncodingException, MessagingException {
 		
 		if(result.hasErrors()) {
-			
-			
 			
 			return "member/signup";
 		}
@@ -72,6 +52,21 @@ public class MemberController {
 		service.joinMember(memberVO);
 		
 		return "member/signup_success";
+	}
+	
+	@GetMapping("emailConfirm")
+	public String emailConfirm(@RequestParam("id") String id, @ModelAttribute("memberVO") MemberVO memberVO) {
+		
+//		System.out.println("id : " + id);
+//		System.out.println(memberVO);
+		
+		memberVO.setValid("Y");
+		memberVO.setAuthkey(null);
+		
+//		System.out.println(memberVO);
+		service.memberValid(memberVO);
+		
+		return "/member/emailconfirm_ok";
 	}
 	
 	@GetMapping("modify")

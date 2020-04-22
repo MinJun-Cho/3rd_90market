@@ -94,7 +94,7 @@ public class AuthController {
 		if(service.emailCheck((String) response.get("email"))) {
 			
 			mapper.joinAuthMember(memberVO);
-			int id = mapper.idCheck(memberVO.getEmail());
+			String id = mapper.idCheck(memberVO.getEmail());
 			//System.out.println("id : " + id);
 			
 			//service.joinMember(memberVO);
@@ -104,7 +104,7 @@ public class AuthController {
 			loginMember.setMemberLogin(true);
 		} else {
 			
-			int id = mapper.idCheck(memberVO.getEmail());
+			String id = mapper.idCheck(memberVO.getEmail());
 			
 			loginMember.setId(id);
 			loginMember.setEmail(memberVO.getEmail());

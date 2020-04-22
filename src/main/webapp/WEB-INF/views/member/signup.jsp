@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -48,22 +48,22 @@
                 <div>이메일</div>
                 <form:input type="text" path="email" id="userId" placeholder="이메일 주소만 허용됩니다." onkeypress="resetEmailExist()" /><br>
                 <button type="button" id="overlap" onclick="emailCheck()">중복확인</button>
-                <form:errors path="email" style="color:red" /><br><br>
+                <form:errors path="email" style="color:red; display: inline-block; margin-left:200px; margin-top:10px" /><br><br>
                 <div>패스워드</div>
                 <form:password showPassword="true" path="passwd" placeholder="7 ~ 20자리로 입력해주세요." /><br>
-                <form:errors path="passwd" style="color:red" /><br><br>
+                <form:errors path="passwd" style="color:red; display: inline-block; margin-left:140px; margin-top:10px" /><br><br>
                 <div>패스워드 확인</div>
                 <form:password showPassword="true" path="passwd2" id="userconfirm" placeholder = "7 ~ 20자리로 입력해주세요." /><br>
-                <form:errors path="passwd2" style="color:red" /><br><br>
+                <form:errors path="passwd2" style="color:red; display: inline-block; margin-left:140px; margin-top:10px" /><br><br>
                 <div>성명</div>
                 <form:input type="text" path="username" id="name" placeholder="한글/영문만 허용됩니다." /><br>
-                <form:errors path="username" style="color:red" /><br><br>
+                <form:errors path="username" style="color:red; display: inline-block; margin-left:155px; margin-top:10px" /><br><br>
                 <div>닉네임</div>
                 <form:input type="text" path="nickname" id="nickname" placeholder="한글/영문/숫자만 허용됩니다." /><br>
-                <form:errors path="nickname" style="color:red" /><br><br>
+                <form:errors path="nickname" style="color:red; display: inline-block; margin-left:150px; margin-top:10px" /><br><br>
                 <div>휴대폰 번호</div>
                 <form:input type="text" path="phone" id="hp" placeholder="Ex) 010-1234-5678" /><br>
-                <form:errors path="phone" style="color:red" /><br><br>
+                <form:errors path="phone" style="color:red; display: inline-block; margin-left:140px; margin-top:10px" /><br><br>
             </div>
             <div>
             	<form:button type="submit" id="signup">가입하기</form:button>

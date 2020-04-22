@@ -1128,7 +1128,8 @@ footer {
 
 .info_container_img2 .slide1 {
     position: absolute;
-    width: 100%;
+    width: 426px;
+    height: 426px;
     box-sizing: border-box;
     overflow: hidden;
     
@@ -1158,6 +1159,7 @@ footer {
 }
 
 #prevBtn {
+	left: 10px;
     background-image: url(../img/arrow-left-over.svg);
 }
 

@@ -8,7 +8,15 @@
 		SELECT email FROM members WHERE email = #{email}
 	</select>
 	
-	<insert id="joinMember" parameterType="com.googongmarket.domain.MemberVO">
+	<update id="updateAuthKey" parameterType="com.googongmarket.domain.MemberVO">
+		UPDATE members SET authkey = #{authkey} WHERE email = #{email}
+	</update>
+	
+	<update id="memberValid" parameterType="com.googongmarket.domain.MemberVO">
+		UPDATE members SET valid = #{valid}, authkey = #{authkey} WHERE email = #{email}
+	</update>
+	
+	<insert id="joinMember" parameterType="com.googongmarket.domain.MemberVO" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO members(email, passwd, username, nickname, phone) 
 			VALUES(#{email}, #{passwd}, #{username}, #{nickname}, #{phone})
 	</insert>
@@ -18,11 +26,11 @@
 	</select>
 	
 	<select id="getLoginMemberInfo" parameterType="com.googongmarket.domain.MemberVO" resultType="com.googongmarket.domain.MemberVO">
-		SELECT id, email FROM members WHERE email = #{email} AND passwd = #{passwd}
+		SELECT id, email, valid, authkey FROM members WHERE email = #{email} AND passwd = #{passwd}
 	</select>
 	
-	<select id="getModifyMemberInfo" parameterType="java.lang.Integer" resultType="com.googongmarket.domain.MemberVO">
-		SELECT email, username, nickname, phone FROM members WHERE id = #{id}
+	<select id="getModifyMemberInfo" parameterType="java.lang.String" resultType="com.googongmarket.domain.MemberVO">
+		SELECT email, username, nickname, phone, valid, authkey FROM members WHERE id = #{id}
 	</select>
 	
 	<update id="modifyMemberInfo" parameterType="com.googongmarket.domain.MemberVO">

@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class MemberVO {
 	
-	private int id;
+	private String id;
 	
 	@Email
 	@Size(max = 30)
@@ -42,5 +42,6 @@ public class MemberVO {
 	private String phone;
 	
 	private String valid;
+	private String authkey;
 	private String social_type;
 }

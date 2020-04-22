@@ -61,19 +61,26 @@ public class LoginController {
 		
 		service.getLoginMemberInfo(tempLoginMember);
 		
+		//System.out.println(tempLoginMember.getValid());
+		
+		if(tempLoginMember.getValid().equals("N")) {
+			
+			return "auth/no_email_confirm";
+			
+		}
+		
 		if(loginMember.isMemberLogin() == true) {
-			
-			service.getModifyMemberInfo(tempLoginMember);
-			
-			session.setAttribute("username", tempLoginMember.getUsername());
-			
-			return "auth/login_success";
+		
+		service.getModifyMemberInfo(tempLoginMember);
+		
+		session.setAttribute("username", tempLoginMember.getUsername());
+		
+		return "auth/login_success";
 			
 		} else {
 			
 			return "auth/login_fail";
-			
-		}
+		}	
 	}
 	
 	@GetMapping("logout")
