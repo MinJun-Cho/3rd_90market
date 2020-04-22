@@ -40,10 +40,6 @@
 	                <a href="${naverUrl}">
 					<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a>
 				</div>
-				<div class="btn">
-	                <a href="${kakaoUrl}">
-					<img width="223" src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_btn_large_narrow.png"/></a>
-				</div>
 	            <div class="loginbtn">
 	                <form:button type="submit" class="btn3">로그인</form:button>
 	            </div>

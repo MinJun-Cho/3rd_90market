@@ -100,13 +100,4 @@ public class AuthController {
 		
 		return "auth/naver/success";
 	}
-	
-	@RequestMapping(value = "/auth/kakao/callback", method = {RequestMethod.GET, RequestMethod.POST})
-	public String kakaoCallback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session,
-			HttpServletRequest request, MemberVO memberVO) {
-		
-		
-		
-		return "auth/kakao/success";
-	}
 }
