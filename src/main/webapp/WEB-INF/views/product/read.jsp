@@ -34,7 +34,7 @@
                                 <div class='info_container_info2_info1'>배송비</div>
                                 <span>배송비 별도</span>
                                 <div class='info_container_info2_info1'>판매자></div>
-                                <span>jj6267@naver.com</span>
+                                <span>${product.seller}</span>
                                 <div class='info_container_info2_info2'>
                                     <button id='info_btn'>연락하기</button>
                                     <button id='info_btn2'>바로구매</button>

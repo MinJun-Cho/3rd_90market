@@ -14,7 +14,7 @@
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous" type="text/javascript">
     </script>
     <link rel="shortcut icon" type="image/x-icon" href="/resources/img/logo2.png" />
-    <link rel="stylesheet" href="/resources/css/index.css?ver=0.8">
+    <link rel="stylesheet" href="/resources/css/index.css?ver=1.0">
 </head>
 <body>
 	<aside>

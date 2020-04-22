@@ -12,46 +12,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="/resources/img/logo2.png" />
     <link rel="stylesheet" href="/resources/css/login.css">
 </head>
-<script>
-	function emailCheck() {
-
-		var email = $("#email").val()
-
-		if (email.length == 0) {
-
-			alert("이메일을 입력해주세요.")
-			return
-		}
-
-		$.ajax({
-			url: "/user/emailCheck/" + email,
-			type: "get",
-			dataType: "text",
-			success: function (result) {
-				if (result.trim() == "true") {
-
-					alert("사용할 수 있는 이메일 입니다.")
-					$("#emailExist").val("true")
-				} else {
-
-					alert("이미 가입된 이메일 입니다.")
-					$("#emailExist").val("false")
-				}
-			}
-		})
-	}
-
-	function resetEmailExist() {
-
-		$("#emailExist").val("false")
-	}
-</script>
 <body>
     <div class = "member">
         <div class = "member_container">
             <h2>회원정보 수정</h2>
-            <div>
             <form:form action="/member/postModify" method="post" modelAttribute="modifyMember">
+            <div>
                 <div>이메일</div>
                 <form:input type="text" path="email" id ="userId" readonly="true"/><br>
                 <div>패스워드</div>
@@ -66,14 +32,14 @@
                 <form:input type="text" path="nickname" id ="nickname" placeholder="한글/영문/숫자만 허용됩니다." /><br>
                 <form:errors path="nickname" style="color:red; display: inline-block; margin-left:150px; margin-top:10px" /><br><br>
                 <div>휴대폰 번호</div>
-                <form:input type="text" path="phone" id ="hp" placeholder="Ex) 010-1234-5678" /><br>
+                <form:input type="text" path="phone" id="hp" placeholder="Ex) 010-1234-5678" /><br>
                 <form:errors path="phone" style="color:red; display: inline-block; margin-left:140px; margin-top:10px" /><br><br>
             </div>
             <div>
-                <form:button type="submit" id ="signup">수정완료</form:button>
+                <form:button type="submit" id="signup">수정완료</form:button>
+                <form:button type="button" id="signup" onclick="location.href='/member/delete'">회원 탈퇴</form:button>
             </div>
+            </form:form>
         </div>
     </div>
-    </form:form>
-    <script src="/resources/js/member_join.js.js"></script>
 </body>

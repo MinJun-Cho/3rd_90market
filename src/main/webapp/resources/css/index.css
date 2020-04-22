@@ -33,7 +33,7 @@ body {
     transition: all .3s ease-in-out;
     display: inline-block;
     text-decoration: none;
-    opacity: 0;
+    opacity: 0.1;
 }
 
 button:focus {
@@ -124,7 +124,6 @@ nav {
     width: 385px;
     height: 20px;
     margin-left: 10px;
-    margin-top: 8px;
 }
 
 .logo_container h2 input:focus {
@@ -205,6 +204,7 @@ nav {
     height: 300px;
     position: relative;
     overflow: hidden;
+    
 }
 
 .slider_container {
@@ -213,9 +213,6 @@ nav {
     transition: all 500ms ease 0s;
 }
 
-.slider_container .animated {
-    transition: all 1s ease-in;
-}
 
 .slider_container .slide {
     position: absolute;
@@ -245,10 +242,6 @@ nav {
     opacity: 0.3;
 }
 
-#prev.disabled,
-#next.disabled {
-    display: none;
-}
 
 #prev {
     background-image: url(../img/arrow-left-out.svg);
@@ -354,7 +347,6 @@ nav {
     border-color: rgb(245, 245, 245);
     border-image: initial;
     background: rgb(255, 255, 255);
-    font-size: 14px;
 }
 
 
@@ -418,8 +410,9 @@ nav {
 }
 
 .fashion .box_container .box div img {
-    width: 240px;
+    width: 210px;
     height: 210px;
+    margin-left: 12px;
 }
 
 .title {
@@ -814,7 +807,8 @@ footer {
     display: flex;
     width: 30%;
     height: 10rem;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(220, 219, 228);
@@ -831,13 +825,7 @@ footer {
     height: 40px;
     -webkit-box-align: center;
     align-items: center;
-}
-
-.sell_category_container .sell_category_container_ul ul li input {
-    width: 100%;
-    height: 100%;
     padding: 0px 1.5rem;
-    border: 0;
     background-color: white;
     cursor: pointer;
     font-size: 15px;
@@ -847,6 +835,26 @@ footer {
     letter-spacing: -0.5px;
     font-weight: 600;
 }
+
+.sell_category_container .sell_category_container_ul ul li input[type="radio"]{
+   
+}
+
+
+.sell_category_container .sell_category_container_ul ul li input {
+    margin-top: 25px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 15px;
+    direction: ltr;
+    text-align: left;
+    color: rgb(33, 33, 33);
+    letter-spacing: -0.5px;
+    font-weight: 600;
+   
+}
+
+  
 
 
 .sell_category_container .sell_category_container_ul ul li .red {
@@ -864,7 +872,6 @@ footer {
     font-weight: 600;
     outline-color: white;
 }
-
 
 .sell_state {
     width: 100%;
@@ -1108,7 +1115,6 @@ footer {
     width: 426px;
     height: 426px;
     border: 1px solid;
-    
 }
 
 .info_container_img1 {
@@ -1116,13 +1122,12 @@ footer {
     height: 100%;
     position: relative;
     overflow: hidden;
-    transition: all 1s ease-in;
 }
 
 .info_container_img2 {
     position: absolute;
     width: 100%;
-    transition: all 1s ease-in;
+    transition: all 0.1s ease-in;
 }
 
 
@@ -1132,11 +1137,11 @@ footer {
     height: 426px;
     box-sizing: border-box;
     overflow: hidden;
-    
 }
 
 .slide1 img{
     width: 100%;
+    height: 100%;
 }
 
 #prevBtn,
@@ -1159,7 +1164,6 @@ footer {
 }
 
 #prevBtn {
-	left: 10px;
     background-image: url(../img/arrow-left-over.svg);
 }
 

@@ -36,4 +36,12 @@
 	<update id="modifyMemberInfo" parameterType="com.googongmarket.domain.MemberVO">
 		UPDATE members SET passwd = #{passwd}, nickname = #{nickname}, phone = #{phone} WHERE id = #{id}
 	</update>
+	
+	<select id="getDeleteMemberInfo" parameterType="java.lang.String" resultType="com.googongmarket.domain.MemberVO">
+		SELECT email, passwd FROM members WHERE id = #{id}
+	</select>
+	
+	<delete id="deleteMember">
+		DELETE FROM members WHERE email = #{email} AND passwd = #{passwd}
+	</delete>
 </mapper>

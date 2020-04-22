@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Success</title>
-<script>
-	alert("회원가입 되었습니다.\n가입하신 이메일로 보내진 인증 메일을 확인해주세요.")
+<title>Insert title here</title>
+</head>
+<<script>
+	alert("회원 탈퇴 처리되었습니다.\n이용해주셔서 감사합니다.")
 	location.href="/"
 </script>
-</head>
 </html>

@@ -22,4 +22,8 @@ public interface MemberMapper {
 	
 	public void modifyMemberInfo(MemberVO modifyMember);
 	
+	public MemberVO getDeleteMemberInfo(String id);
+	
+	public int deleteMember(MemberVO deleteMember);
+	
 }

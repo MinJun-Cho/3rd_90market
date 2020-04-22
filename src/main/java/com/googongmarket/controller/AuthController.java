@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,26 +44,8 @@ public class AuthController {
 	@Lazy
 	private MemberVO loginMember;
 
-//	@Autowired
-//	private void setAuthNaverService(AuthNaverService naverService) {
-//		
-//		this.naverService = naverService;
-//	}
-	
-	@GetMapping("/auth/naver/login")
-	public String naverLogin(Model model, HttpSession session) {
-		
-		String naverAuthUrl = naverService.getAuthorizeationUrl(session);
-		
-		//System.out.println("네이버 : " + naverAuthUrl);
-		
-		model.addAttribute("url", naverAuthUrl);
-		
-		return "auth/naver/login";
-	}
-	
 	@RequestMapping(value = "/auth/naver/callback", method = {RequestMethod.GET, RequestMethod.POST})
-	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session,
+	public String naverCallback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session,
 							HttpServletRequest request, MemberVO memberVO) throws IOException, InterruptedException, ExecutionException, ParseException {
 		
 		//System.out.println("여기는 callback");
@@ -118,5 +99,14 @@ public class AuthController {
 		//System.out.println("\nresult : " + naverProfile + "\n");
 		
 		return "auth/naver/success";
+	}
+	
+	@RequestMapping(value = "/auth/kakao/callback", method = {RequestMethod.GET, RequestMethod.POST})
+	public String kakaoCallback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session,
+			HttpServletRequest request, MemberVO memberVO) {
+		
+		
+		
+		return "auth/kakao/success";
 	}
 }

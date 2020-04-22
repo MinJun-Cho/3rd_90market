@@ -21,4 +21,8 @@ public interface MemberService {
 	public void getModifyMemberInfo(MemberVO modifyMember);
 	
 	public void modifyMemberInfo(MemberVO modifyMember);
+	
+	public void getDeleteMemberInfo(MemberVO deleteMember);
+	
+	public void deleteMember(MemberVO deleteMember);
 }

@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.googongmarket.domain.ImageVO;
+import com.googongmarket.domain.MemberVO;
 import com.googongmarket.domain.ProductVO;
 import com.googongmarket.service.ProductService;
 
@@ -37,6 +40,10 @@ public class ProductController {
 	@Autowired
 	private ProductService service;
 	
+	@Resource(name = "loginMember")
+	@Lazy
+	private MemberVO loginMember;
+	
 	@GetMapping("create")
 	public String create() {
 		
@@ -44,27 +51,17 @@ public class ProductController {
 	}
 
 	@PostMapping("/postCreate")
-	public String postCreate(MultipartFile[] file, ProductVO product, ImageVO image, Model model, Model model1, HttpServletRequest request) throws UnsupportedEncodingException {
+	public String postCreate(MultipartFile[] file, ProductVO product, ImageVO image, MemberVO memberVO, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
 		
-		//product.setSeller("hello");
-		//System.out.println(product.getCategory());
+		//System.out.println("before category : " + product.getCategory());
 		product.setCategory("fashion");
+		System.out.println("after category : " + product.getCategory());
 		
-		String title = product.getTitle();
-		title = new String(title.getBytes("8859_1"), "UTF-8");
-		product.setTitle(title);
-		
-		String content = product.getContent();
-		content = new String(content.getBytes("8859_1"), "UTF-8");
-		content = content.replaceAll("\r\n", "<br>");
-		product.setContent(content);
-		
-//		String category = product.getCategory();
-//		category = new String(category.getBytes("8859_1"), "UTF-8");
-//		product.setCategory(category);
+		product.setSeller(loginMember.getEmail());
 		
 		service.create(product);
-		model.addAttribute(product);
+		model.addAttribute("product", product);
+		System.out.println(product);
 		
 		int tmpBno = product.getBno();
 
@@ -99,7 +96,7 @@ public class ProductController {
 				image.setFilepath("/resources/originimages/"+ fileName);
 				image.setThumbnail("/resources/thumbimages/" + fileName);
 				
-				System.out.println("image!!!!!!!!\n " + image);
+				//System.out.println("image!!!!!!!!\n " + image);
 				service.createFile(image);
 				
 				number++;
@@ -205,12 +202,12 @@ public class ProductController {
 	public void read(@RequestParam("bno") int bno, Model model, ProductVO product, HttpServletRequest request) {      
 	    
 		String content = service.read(bno).getContent();
-		System.out.println(content);
+		//System.out.println(content);
 		content = content.replaceAll("<br>", "\r\n");
 		product.setContent(content);
 		
 		model.addAttribute("product", service.read(bno));
-		System.out.println("product : " + service.read(bno));
+		//System.out.println("product : " + service.read(bno));
 	
 		List<String> images = service.getFile(bno);
 		model.addAttribute("images", images);

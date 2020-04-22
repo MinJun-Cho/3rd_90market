@@ -90,6 +90,38 @@ public class MemberController {
 		return "member/modify_success";
 	}
 	
+	@GetMapping("delete")
+	public String delete(@ModelAttribute("deleteMember") MemberVO deleteMember) {
+		
+		service.getDeleteMemberInfo(deleteMember);
+		
+		return "member/delete";
+	}
+	
+	@PostMapping("/postDelete")
+	public String postDelete(@Valid @ModelAttribute("deleteMember") MemberVO deleteMember, BindingResult result) {
+		
+		System.out.println("before delete : " + deleteMember);
+		
+		if(result.hasErrors()) {
+			
+			return "member/delete";
+		}
+		
+		service.deleteMember(deleteMember);
+		
+		System.out.println("after delete : " + deleteMember);
+		
+		if(loginMember.isMemberLogin() == false) {
+		
+			return "member/delete_success";
+			
+		} else {
+			
+			return "member/delete_fail";
+		}
+	}
+	
 	@GetMapping("myshop")
 	public String myshop() {
 		
@@ -101,6 +133,5 @@ public class MemberController {
 		
 		MemberValidator memberValidator = new MemberValidator();
 		binder.addValidators(memberValidator);
-		
 	}
 }

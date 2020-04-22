@@ -141,10 +141,40 @@ public class MemberServiceImpl implements MemberService {
 		String hashPasswd = BCrypt.hashpw(modifyMember.getPasswd(), BCrypt.gensalt());
 		modifyMember.setPasswd(hashPasswd);
 		
-		System.out.println(modifyMember.getUsername());
-		System.out.println(modifyMember.getNickname());
+		//System.out.println(modifyMember.getUsername());
+		//System.out.println(modifyMember.getNickname());
 		
 		mapper.modifyMemberInfo(modifyMember);
+	}
+	
+	@Override
+	public void getDeleteMemberInfo(MemberVO deleteMember) {
 		
+		MemberVO tempDeleteMember = mapper.getDeleteMemberInfo(loginMember.getId());
+		
+		deleteMember.setEmail(tempDeleteMember.getEmail());
+		//deleteMember.setPasswd(tempDeleteMember.getPasswd());
+		deleteMember.setId(loginMember.getId());
+	}
+	
+	@Override
+	public void deleteMember(MemberVO deleteMember) {
+		
+		String plainPasswd = deleteMember.getPasswd();
+		String hashPasswd = mapper.loginPasswdCheck(deleteMember.getEmail());
+		
+		if(hashPasswd != null) {
+			
+			if(BCrypt.checkpw(plainPasswd, hashPasswd)) {
+				
+				deleteMember.setPasswd(hashPasswd);
+				
+				mapper.deleteMember(deleteMember);
+				
+				loginMember.setMemberLogin(false);
+				
+//				MemberVO tempLoginMember2 = mapper.getLoginMemberInfo(deleteMember);
+			}
+		}
 	}
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.googongmarket.domain.MemberVO;
+import com.googongmarket.service.AuthKakaoService;
 import com.googongmarket.service.AuthNaverService;
 import com.googongmarket.service.MemberService;
 import com.googongmarket.validator.MemberValidator;
@@ -34,6 +35,9 @@ public class LoginController {
 	@Setter(onMethod_ = {@Autowired})
 	private AuthNaverService naverService;
 	
+	@Setter(onMethod_ = {@Autowired})
+	private AuthKakaoService kakaoService;
+	
 	@Resource(name = "loginMember")
 	@Lazy
 	private MemberVO loginMember;
@@ -43,10 +47,12 @@ public class LoginController {
 						@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model, HttpSession session) {
 		
 		String naverAuthUrl = naverService.getAuthorizeationUrl(session);
+		String kakaoAuthUrl = kakaoService.getAuthorizeationUrl(session);
 		
 		model.addAttribute("fail", fail);
 		
-		model.addAttribute("url", naverAuthUrl);
+		model.addAttribute("naverUrl", naverAuthUrl);
+		model.addAttribute("kakaoUrl", kakaoAuthUrl);
 		
 		return "auth/login";
 	}
@@ -61,26 +67,25 @@ public class LoginController {
 		
 		service.getLoginMemberInfo(tempLoginMember);
 		
-		//System.out.println(tempLoginMember.getValid());
 		
-		if(tempLoginMember.getValid().equals("N")) {
-			
+		if("N".equals(tempLoginMember.getValid())) {
+				
 			return "auth/no_email_confirm";
-			
+						
 		}
 		
 		if(loginMember.isMemberLogin() == true) {
 		
-		service.getModifyMemberInfo(tempLoginMember);
+			service.getModifyMemberInfo(tempLoginMember);
 		
-		session.setAttribute("username", tempLoginMember.getUsername());
+			session.setAttribute("username", tempLoginMember.getUsername());
 		
-		return "auth/login_success";
+			return "auth/login_success";
 			
 		} else {
 			
 			return "auth/login_fail";
-		}	
+		}
 	}
 	
 	@GetMapping("logout")
