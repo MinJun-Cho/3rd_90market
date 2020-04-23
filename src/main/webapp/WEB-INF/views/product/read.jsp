@@ -53,6 +53,6 @@
        	</div>
     </section>
     
-    <script src="/resources/js/product_slide.js"></script>
+    <script src="/resources/js/product_slide.js?ver=0.1"></script>
 
 <%@ include file="/WEB-INF/views/content/footer.jsp" %>

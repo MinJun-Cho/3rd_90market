@@ -44,6 +44,8 @@ let topHeight = 0;
 let navPrev = document.querySelector('#prev');
 let navNext = document.querySelector('#next');
 
+sliderContainer.style.left= 0 + '%';
+
 function calculateTallestSlide() {
     
     for (var i = 0; i < slideCount; i++) {

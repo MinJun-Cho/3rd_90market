@@ -10,7 +10,7 @@
     <title>로그인</title>
     <script src="https://kit.fontawesome.com/7b5ecf7db0.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="/resources/img/logo2.png" />
-	<link rel="stylesheet" href="/resources/css/login.css" >
+	<link rel="stylesheet" href="/resources/css/login.css?ver=0.1" >
 </head>
 <body>
 	<div class=login>

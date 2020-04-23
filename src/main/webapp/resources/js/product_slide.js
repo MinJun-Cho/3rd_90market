@@ -7,7 +7,7 @@ let topHeight = 0;
 let navPrev = document.querySelector('#prevBtn');
 let navNext = document.querySelector('#nextBtn');
 
-
+sliderContainer.style.left= 0 + '%';
 
 for (var i = 0; i < slideCount; i++) {
     slides[i].style.left = i*100 +'%'

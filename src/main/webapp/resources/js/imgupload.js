@@ -72,7 +72,6 @@ function clickBtnHandler(e) {
     this.classList.add('red')
     catebtn3.style.display = "block"
     catebtn2.innerText = this.childNodes[0].value;
-
 }
 for (var j = 0; j < catebtn.length; j++) {
     catebtn[j].addEventListener('click', clickBtnHandler);

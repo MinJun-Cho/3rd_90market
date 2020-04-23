@@ -54,7 +54,7 @@ public class ProductController {
 	public String postCreate(MultipartFile[] file, ProductVO product, ImageVO image, MemberVO memberVO, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
 		
 		//System.out.println("before category : " + product.getCategory());
-		product.setCategory("fashion");
+		//product.setCategory("fashion");
 		System.out.println("after category : " + product.getCategory());
 		
 		product.setSeller(loginMember.getEmail());

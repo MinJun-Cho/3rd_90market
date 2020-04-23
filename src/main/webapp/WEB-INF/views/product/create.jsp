@@ -45,18 +45,18 @@
                     <div>카테고리</div>
                 </div>
                 <div class='sell_category_container_ul'>
-                    <ul>
-                        <li><input type="radio" name="category" value="fashion">패션잡화</li>
-                        <li><input type="radio" name="category" value="women">여성의류</li>
-                        <li><input type="radio" name="category" value="men">남성의류</li>
-                        <li><input type="radio" name="category" value="appliances">디지털가전</li>
-                        <li><input type="radio" name="category" value="books">도서/티켓/취미/애완</li>
-                        <li><input type="radio" name="category" value="young">유아동/출산</li>
-                        <li><input type="radio" name="category" value="life">생활/문구/가구/식품</li>
-                        <li><input type="radio" name="category" value="beauti">뷰티/미용</li>
-                        <li><input type="radio" name="category" value="sport">스포츠/레저</li>
-                        <li><input type="radio" name="category" value="car">차량/오토바이</li>
-                        <li><input type="radio" name="category" value="etc">기타</li>
+                     <ul>
+                        <li><input  type="radio" id="id1" value="fashion" name="category"><label for='id1'>패션잡화</label></li>
+                        <li><input  type="radio" id="id2" value="women" name=category><label for='id2'>여성의류</label></li>
+                        <li><input  type="radio" id="id3" value="men" name=category><label for='id3'>남성의류</label></li>
+                        <li><input  type="radio" id="id4" value="appliances" name=category><label for='id4'>디지털가전</label></li>
+                        <li><input  type="radio" id="id5" value="books" name=category><label for='id5'>도서/티켓/취미/애완</label></li>
+                        <li><input  type="radio" id="id6" value="young" name=category><label for='id6'>유아동/출산</label></li>
+                        <li><input  type="radio" id="id7" value="life" name=category><label for='id7'>생활/문구/가구/식품</label></li>
+                        <li><input  type="radio" id="id8" value="beauti" name=category><label for='id8'>뷰티/미용</label></li>
+                        <li><input  type="radio" id="id9" value="sport" name=category><label for='id9'>스포츠/레저</label></li>
+                        <li><input  type="radio" id="id10" value="car" name=category><label for='id10'>차량/오토바이</label></li>
+                        <li><input  type="radio" id="id11" value="etc" name=category><label for='id11'>기타</label></li>
                     </ul>
                 </div>
                 <div class="cate1">현재 선택한 카테고리:<span></span></div>
@@ -100,6 +100,6 @@
     </section>
     
     <script src="/resources/js/menu.js"></script>
-    <script src="/resources/js/imgupload.js?ver=0.3"></script>
+    <script src="/resources/js/imgupload.js?ver=0.4"></script>
 
 <%@ include file="/WEB-INF/views/content/footer.jsp" %>
