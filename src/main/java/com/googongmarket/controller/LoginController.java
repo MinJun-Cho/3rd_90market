@@ -42,11 +42,11 @@ public class LoginController {
 	public String login(@ModelAttribute("tempLoginMember") MemberVO tempLoginMember,
 						@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model model, HttpSession session) {
 		
-		String naverAuthUrl = naverService.getAuthorizeationUrl(session);
+		String url = naverService.getAuthorizeationUrl(session);
 		
 		model.addAttribute("fail", fail);
 		
-		model.addAttribute("naverUrl", naverAuthUrl);
+		model.addAttribute("url", url);
 		
 		return "auth/login";
 	}
