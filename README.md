@@ -1,4 +1,4 @@
-![90market](https://user-images.githubusercontent.com/48228245/80710812-5211b180-8b2a-11ea-9b6d-334753d83087.png)
+![90market](https://user-images.githubusercontent.com/48228245/80719018-d6b5fd00-8b35-11ea-9edc-627a5660cc03.png)
 
 ## 프로젝트 개요
 사용자가 물품을 사고 팔 수 있는 [번개장터](https://m.bunjang.co.kr/) 서비스 클론 제작
