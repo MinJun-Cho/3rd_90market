@@ -3,9 +3,9 @@
 사용자가 물품을 사고 팔 수 있는 [번개장터](https://m.bunjang.co.kr/) 서비스 클론 제작
 
 ## 사용 방법
-'''
+```
 Eclipse 에서 Project Import 선택하고 Project from Gits - Clone URI 선택
-'''
+```
 ## 개발 스택
 - BackEnd
   - Java, Spring, MySQL, Mybatis
