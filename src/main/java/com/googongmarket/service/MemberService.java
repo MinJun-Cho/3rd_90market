@@ -10,8 +10,6 @@ public interface MemberService {
 
 	public boolean emailCheck(String email);
 	
-//	public void updateAuthKey(MemberVO memberVO);
-	
 	public void memberValid(MemberVO memberVO);
 	
 	public void joinMember(MemberVO memberVO) throws MessagingException, UnsupportedEncodingException;

@@ -48,21 +48,14 @@ public class AuthController {
 	public String naverCallback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session,
 							HttpServletRequest request, MemberVO memberVO) throws IOException, InterruptedException, ExecutionException, ParseException {
 		
-		//System.out.println("여기는 callback");
-		
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverService.getAccessToken(session, code, state);
-		//System.out.println("\noauthToken : " + oauthToken + "\n");
 		
 		naverProfile = naverService.getUserProfile(oauthToken);
-		
-		//System.out.println(naverLoginBO.getUserProfile(oauthToken).toString());
 		
 		JSONParser jsonParser = new JSONParser();
 		JSONObject jsonObject =(JSONObject) jsonParser.parse(naverProfile.toString());
 		JSONObject response = (JSONObject) jsonObject.get("response");
-		
-		//System.out.println("response : " + response);
 		
 		memberVO.setEmail((String) response.get("email"));
 		memberVO.setPasswd("NAVER");
@@ -70,15 +63,10 @@ public class AuthController {
 		memberVO.setNickname((String) response.get("nickname"));
 		memberVO.setSocial_type("naver");
 		
-		//System.out.println(service.emailCheck((String) response.get("email")));
-		
 		if(service.emailCheck((String) response.get("email"))) {
 			
 			mapper.joinAuthMember(memberVO);
 			String id = mapper.idCheck(memberVO.getEmail());
-			//System.out.println("id : " + id);
-			
-			//service.joinMember(memberVO);
 			
 			loginMember.setId(id);
 			loginMember.setEmail(memberVO.getEmail());
@@ -93,10 +81,7 @@ public class AuthController {
 		}
 		
 		model.addAttribute("result", naverProfile);
-		//System.out.println(memberVO.getUsername());
 		session.setAttribute("username", memberVO.getUsername());
-		
-		//System.out.println("\nresult : " + naverProfile + "\n");
 		
 		return "auth/naver/success";
 	}

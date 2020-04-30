@@ -53,15 +53,10 @@ public class ProductController {
 	@PostMapping("/postCreate")
 	public String postCreate(MultipartFile[] file, ProductVO product, ImageVO image, MemberVO memberVO, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
 		
-		//System.out.println("before category : " + product.getCategory());
-		//product.setCategory("fashion");
-		System.out.println("after category : " + product.getCategory());
-		
 		product.setSeller(loginMember.getEmail());
 		
 		service.create(product);
 		model.addAttribute("product", product);
-		System.out.println(product);
 		
 		int tmpBno = product.getBno();
 
@@ -95,22 +90,14 @@ public class ProductController {
 				image.setBno(tmpBno);
 				image.setFilepath("/resources/originimages/"+ fileName);
 				image.setThumbnail("/resources/thumbimages/" + fileName);
-				
-				//System.out.println("image!!!!!!!!\n " + image);
 				service.createFile(image);
 				
 				number++;
-				
-				//model.addAttribute("image", multipartFile.getOriginalFilename());					
 				
 			} catch (Exception e) {
 				
 				e.printStackTrace();
 				
-			} finally {
-
-				//service.readFile(tmpBno);
-				//System.out.println(service.readFile(tmpBno));
 			}
 		}
 				
@@ -150,7 +137,6 @@ public class ProductController {
 	@PostMapping("/modify")
 	public String modify(HttpServletRequest req, HttpSession session, HttpServletResponse res, @RequestParam HashMap<String, String> map,
 			ProductVO product, RedirectAttributes rttr) throws Exception {
-		
 		
 		if (service.modify(product)) {
 			
@@ -202,12 +188,9 @@ public class ProductController {
 	public void read(@RequestParam("bno") int bno, Model model, ProductVO product, HttpServletRequest request) {      
 	    
 		String content = service.read(bno).getContent();
-		//System.out.println(content);
 		content = content.replaceAll("<br>", "\r\n");
 		product.setContent(content);
 		
-		model.addAttribute("product", service.read(bno));
-		//System.out.println("product : " + service.read(bno));
 	
 		List<String> images = service.getFile(bno);
 		model.addAttribute("images", images);

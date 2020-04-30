@@ -67,10 +67,6 @@ public class MemberServiceImpl implements MemberService {
 		memberVO.setAuthkey(authKey);
 		mapper.updateAuthKey(memberVO);
 		
-//		System.out.println("IDIDIDIDID : " + memberVO.getId());
-//		System.out.println("EMAIALALL : " + memberVO.getEmail());
-//		System.out.println("AUTHTUAHTHKEY : " + memberVO.getAuthkey());
-		
 		MailUtils sendMail = new MailUtils(mailSender);
 		
 		sendMail.setSubject("구공마켓 이메일 인증");
@@ -141,9 +137,6 @@ public class MemberServiceImpl implements MemberService {
 		String hashPasswd = BCrypt.hashpw(modifyMember.getPasswd(), BCrypt.gensalt());
 		modifyMember.setPasswd(hashPasswd);
 		
-		//System.out.println(modifyMember.getUsername());
-		//System.out.println(modifyMember.getNickname());
-		
 		mapper.modifyMemberInfo(modifyMember);
 	}
 	
@@ -153,7 +146,6 @@ public class MemberServiceImpl implements MemberService {
 		MemberVO tempDeleteMember = mapper.getDeleteMemberInfo(loginMember.getId());
 		
 		deleteMember.setEmail(tempDeleteMember.getEmail());
-		//deleteMember.setPasswd(tempDeleteMember.getPasswd());
 		deleteMember.setId(loginMember.getId());
 	}
 	
@@ -172,8 +164,6 @@ public class MemberServiceImpl implements MemberService {
 				mapper.deleteMember(deleteMember);
 				
 				loginMember.setMemberLogin(false);
-				
-//				MemberVO tempLoginMember2 = mapper.getLoginMemberInfo(deleteMember);
 			}
 		}
 	}

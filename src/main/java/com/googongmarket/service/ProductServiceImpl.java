@@ -20,14 +20,12 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductVO> getList() {
 		
-		//log.info("getList function called");
 		return mapper.getList();
 	}
 	
 	@Override
 	public void create(ProductVO product) {		
 		
-		//log.info("register"+board);
 		mapper.create(product);
 	}
 	
@@ -40,7 +38,6 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public ProductVO read(int bno) {
 		
-		//log.info("get ...."+bno);
 		return mapper.read(bno);
 	}
 	
@@ -58,15 +55,13 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public boolean modify(ProductVO product) {
-		
-		//log.info("modify.... : "+board);
+
 		return mapper.modify(product) == 1;
 	}
 
 	@Override
 	public boolean delete(int bno) {
 		
-		//log.info("remove .... : "+bno);
 		return mapper.delete(bno) == 1;
 	}
 	

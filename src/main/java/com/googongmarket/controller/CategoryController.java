@@ -21,8 +21,6 @@ public class CategoryController {
 	@GetMapping("category")
 	public void category(Model model) {
 		
-		//log.info("list");
-		//model.addAttribute("category", service.getList());
 	}
 
 	@GetMapping("appliances")

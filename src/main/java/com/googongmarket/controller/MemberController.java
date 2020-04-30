@@ -57,13 +57,9 @@ public class MemberController {
 	@GetMapping("emailConfirm")
 	public String emailConfirm(@RequestParam("id") String id, @ModelAttribute("memberVO") MemberVO memberVO) {
 		
-//		System.out.println("id : " + id);
-//		System.out.println(memberVO);
-		
 		memberVO.setValid("Y");
 		memberVO.setAuthkey(null);
 		
-//		System.out.println(memberVO);
 		service.memberValid(memberVO);
 		
 		return "/member/emailconfirm_ok";
