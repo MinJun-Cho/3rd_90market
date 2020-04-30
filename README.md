@@ -3,7 +3,7 @@
 ## 프로젝트 개요
 사용자가 물품을 사고 팔 수 있는 [번개장터](https://m.bunjang.co.kr/) 서비스 클론 제작
 
-## 사용 방법
+## 실행 방법
 ```
 1. Eclipse -> Project Import 선택 -> Project from Gits -> Clone URI 선택
 2. 구공마켓 URI 복사 후 붙여넣고 Clone
