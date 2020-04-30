@@ -5,7 +5,6 @@
 ## 기술 스택
 - BackEnd
   - Java, Spring, MySQL, Mybatis
-
 - FrontEnd
   - HTML, CSS, JavaScript
 
