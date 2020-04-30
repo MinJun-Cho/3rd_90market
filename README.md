@@ -27,3 +27,6 @@
 - 상품 기능
   - 상품 등록(이미지 포함), 상품 상세정보 표시
   - 상품 썸네일 표시
+  
+## 실행 화면
+![RunProject](https://user-images.githubusercontent.com/48228245/80718518-35c74200-8b35-11ea-991a-75e1aa6f37f5.png)
