@@ -4,7 +4,9 @@
 
 ## 사용 방법
 ```
-Eclipse 에서 Project Import 선택하고 Project from Gits - Clone URI 선택
+1. Eclipse -> Project Import 선택 -> Project from Gits -> Clone URI 선택
+2. 구공마켓 URI 복사 후 붙여넣고 Clone
+3. Tomcat 설정 후 실행
 ```
 ## 개발 스택
 - BackEnd
