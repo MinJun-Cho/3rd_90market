@@ -29,4 +29,4 @@
   - 상품 썸네일 표시
   
 ## 실행 화면
-![RunProject](https://user-images.githubusercontent.com/48228245/80718518-35c74200-8b35-11ea-991a-75e1aa6f37f5.png)
+![RunProject](https://user-images.githubusercontent.com/48228245/80718831-99ea0600-8b35-11ea-9dbc-61eb9aa345ee.png)
