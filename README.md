@@ -15,7 +15,7 @@
 - FrontEnd
   - HTML, CSS, JavaScript
 
-## 클래스 구조
+## 아키텍처
 ![ClassStructure](https://user-images.githubusercontent.com/48228245/80710943-86856d80-8b2a-11ea-88f0-6d2ab1df7c6e.png)
 
 - Auth Controller : 소셜 로그인(네이버) 관련 인증 및 DB 저장, 로그인한 이메일이 DB에 존재하는지 체크 기능
