@@ -28,7 +28,7 @@
   - 상품 등록(이미지 포함), 상품 상세정보 표시
   - 상품 썸네일 표시
 
-## Controller
+## 컨트롤러
 - Auth Controller : 소셜 로그인(네이버) 관련 인증 및 DB 저장, 로그인한 이메일이 DB에 존재하는지 체크 기능
 - Category Controller : 카테고리별로 페이지를 이동시켜주는 기능
 - Home Controller : 메인 화면에서 이용할 수 있는 카테고리, 상품 관련 이동 기능
