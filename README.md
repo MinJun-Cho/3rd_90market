@@ -11,7 +11,7 @@
 ```
 ## 개발 스택
 - BackEnd
-  - Java, Spring, MySQL, Mybatis
+  - Java, Spring, MySQL, MyBatis
 - FrontEnd
   - HTML, CSS, JavaScript
 
@@ -29,4 +29,4 @@
   - 상품 썸네일 표시
   
 ## 실행 화면
-![RunProject](https://user-images.githubusercontent.com/48228245/80718831-99ea0600-8b35-11ea-9dbc-61eb9aa345ee.png)
+![RunProject](https://user-images.githubusercontent.com/48228245/80821377-8c0ab280-8c13-11ea-8224-a201b6046a42.png)
