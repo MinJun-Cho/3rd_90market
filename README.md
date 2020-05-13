@@ -43,4 +43,4 @@
 
 ## 실행 화면
 시연 영상
-[![Video Label]](https://www.youtube.com/watch?v=0rym0r32ibc)
+[![Video Label]](https://user-images.githubusercontent.com/48228245/80821377-8c0ab280-8c13-11ea-8224-a201b6046a42.png)](https://www.youtube.com/watch?v=0rym0r32ibc)
