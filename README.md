@@ -46,6 +46,8 @@
 
 <br>
 <br>
-## 시연영상 (스크린샷 클릭!!!!!!!!!!!!!!!!!!!!!!!!!)
+
+## 시연영상 
+(스크린샷 클릭!!!!!!!!!!!!!!!!!!!!!!!!!)
 
 [![Video Label](https://user-images.githubusercontent.com/48228245/80821377-8c0ab280-8c13-11ea-8224-a201b6046a42.png)](https://www.youtube.com/watch?v=0rym0r32ibc)
