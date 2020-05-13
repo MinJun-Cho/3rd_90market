@@ -3,20 +3,35 @@
 ## 프로젝트 개요
 사용자가 물품을 사고 팔 수 있는 [번개장터](https://m.bunjang.co.kr/) 서비스 클론 제작
 
+<br>
+<br>
+
+
 ## 실행 방법
 ```
 1. Eclipse -> Project Import 선택 -> Project from Gits -> Clone URI 선택
 2. 구공마켓 URI 복사 후 붙여넣고 Clone
 3. Tomcat 설정 후 실행
+
+<br>
+<br>
+
+
 ```
 ## 개발 스택
 - BackEnd
   - Java, Spring, MySQL, MyBatis
 - FrontEnd
   - HTML, CSS, JavaScript
+  
+<br>
+<br>
 
 ## 아키텍처
 ![ClassStructure](https://user-images.githubusercontent.com/48228245/80710943-86856d80-8b2a-11ea-88f0-6d2ab1df7c6e.png)
+
+<br>
+<br>
   
 ## 구현 기능
 - 회원 기능
@@ -27,6 +42,9 @@
 - 상품 기능
   - 상품 등록(이미지 포함), 상품 상세정보 표시
   - 상품 썸네일 표시
+  
+  <br>
+  <br>
 
 ## 컨트롤러
 - Auth Controller : 소셜 로그인(네이버) 관련 인증 및 DB 저장, 로그인한 이메일이 DB에 존재하는지 체크 기능
@@ -50,4 +68,4 @@
 ## 시연영상 
 (스크린샷 클릭!!!!!!!!!!!!!!!!!!!!!!!!!)
 
-[![Video Label](https://user-images.githubusercontent.com/48228245/80821377-8c0ab280-8c13-11ea-8224-a201b6046a42.png)](https://www.youtube.com/watch?v=0rym0r32ibc)
+[![Video Label](https://user-images.githubusercontent.com/48228245/80719018-d6b5fd00-8b35-11ea-9edc-627a5660cc03.png)](https://www.youtube.com/watch?v=0rym0r32ibc)
